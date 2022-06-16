@@ -1,0 +1,345 @@
+﻿
+@{
+    ViewBag.Title = "LichHoc";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<head>
+    Basic
+    <meta charset="UTF-8">
+
+    <title>Modals | SHARED ON THEMELOCK.COM</title>
+    <meta name="keywords" content="HTML5 Admin Template" />
+    <meta name="description" content="Porto Admin - Responsive HTML5 Template">
+    <meta name="author" content="okler.net">
+    Mobile Metas
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    Web Fonts
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+    Vendor CSS
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+    Specific Page Vendor CSS
+    <link rel="stylesheet" href="assets/vendor/pnotify/pnotify.custom.css" />
+    Theme CSS
+    <link rel="stylesheet" href="assets/stylesheets/theme.css" />
+    Skin CSS
+    <link rel="stylesheet" href="assets/stylesheets/skins/default.css" />
+    Theme Custom CSS
+    <link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
+    <link href="@Url.Content("~/Content/Site.css") " rel="stylesheet" type="text/css" />
+</head>
+
+
+
+<body>
+    <div>
+ Page Header Start 
+<div class="container-fluid page-header mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h4 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase font-weight-bold">Lịch Học</h4>
+        <div class="d-inline-flex">
+            <p class="m-0 text-white"><a class="text-white" href="">Trang Chủ</a></p>
+            <p class="m-0 text-white px-2">/</p>
+            <p class="m-0 text-white">Lịch Học</p>
+        </div>
+    </div>
+</div>
+ Page Header End 
+ Gym Class Start 
+<div class="container gym-class mb-5" style="margin-top: 90px;">
+    <div class="row px-3">
+        <div class="col-md-6 p-0">
+            <div class="gym-class-box d-flex flex-column align-items-end justify-content-center bg-primary text-right text-white py-5 px-5">
+                <i class="flaticon-six-pack"></i>
+                <h3 class="display-4 mb-3 text-white font-weight-bold">YoGa</h3>
+                <p>
+                    Tập Yoga là một trong những cách và hỗ trợ giảm cân và giảm mỡ hiệu quả. Yoga là bộ môn thể thao với những động tác cải thiện thể lực,
+                    luyện tập cơ bắp và điều hòa hơi thở.bên cạnh đó còn giúp bạn có những tấm ảnh đẹp cực kỳ với những động tác Yoga đẹp mắt.
+                </p>
+                <a href="" class="btn btn-lg btn-outline-light mt-4 px-4">Tham Gia Ngay</a>
+            </div>
+        </div>
+        <div class="col-md-6 p-0">
+            <div class="gym-class-box d-flex flex-column align-items-start justify-content-center bg-secondary text-left text-white py-5 px-5">
+                <i class="flaticon-bodybuilding"></i>
+                <h3 class="display-4 mb-3 text-white font-weight-bold">Gym Body</h3>
+                <p>
+                    Gym là môn thể thao giúp người luyện tập có được vóc dáng cân đối săn chắc, đồng thời nâng cao sức khỏe và giúp bạn có tinh thần phấn chấn vui tươi.
+                    Đây cũng là môn thể thao thích hợp với mọi đối tượng luyện tập không phân biệt tuổi tác và giới tính.
+                </p>
+                <a href="" class="btn btn-lg btn-outline-light mt-4 px-4">Tham Gia Ngay</a>
+            </div>
+        </div>
+    </div>
+</div>
+ Gym Class End 
+ Class Timetable Start 
+<div class="container gym-feature py-5">
+    <div class="d-flex flex-column text-center mb-5">
+        <h4 class="text-primary font-weight-bold">Lịch Học Cá Nhân</h4>
+        <h4 class="display-4 font-weight-bold">Giờ Học</h4>
+    </div>
+    <div class="tab-class">
+        <ul class="nav nav-pills justify-content-center mb-4">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="pill" href="#class-all">All Classes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#class-cardio">Tập Tạ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#class-crossfit">Tập Thể Hình</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#class-powerlifting">Cơ Bụng</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div id="class-all" class="container tab-pane p-0 active">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-lg m-0">
+                        <thead class="bg-secondary text-white text-center">
+                            <tr>
+                                <th>Thời Gian</th>
+                                <th>Thứ Hai</th>
+                                <th>Thứ Ba</th>
+                                <th>Thứ Tư</th>
+                                <th>Thứ Năm</th>
+                                <th>Thứ Sáu</th>
+                                <th>Thứ Bảy</th>
+                                <th>Chủ Nhật</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <tr>
+                                <th class="bg-secondary text-white align-middle">6.00am - 8.00am</th>
+                                <td><h5>Tập Tạ</h5>Phòng 8</td>
+                                <td></td>
+                                <td><h5>Tập Thể Hình </h5>Phòng 6</td>
+                                <td></td>
+                                <td><h5>Cơ Bụng</h5>Phòng 9</td>
+                                <td></td>
+                                <td><h5>Tập Tạ</h5>Phòng 8</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-secondary text-white align-middle">10.00am - 12.00am</th>
+                                <td></td>
+                                <td><h5>Tập Tạ</h5>Phòng 8</td>
+                                <td></td>
+                                <td><h5>Tập Thể Hình </h5>Phòng 6</td>
+                                <td></td>
+                                <td><h5>Tập Thể Hình </h5>Phòng 6</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th class="bg-secondary text-white align-middle">5.00pm - 7.00pm</th>
+                                <td><h5>Cơ Bụng</h5>Phòng 9</td>
+                                <td></td>
+                                <td><h5>Tập Tạ</h5>Phòng 8</td>
+                                <td></td>
+                                <td><h5>Tập Thể Hình </h5>Phòng 6</td>
+                                <td></td>
+                                <td><h5>Tập Tạ</h5>Phòng 8</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-secondary text-white align-middle">7.00pm - 9.00pm</th>
+                                <td></td>
+                                <td><h5>Tập Thể Hình </h5>Phòng 6</td>
+                                <td></td>
+                                <td><h5>Tập Tạ</h5>Phòng 8</td>
+                                <td></td>
+                                <td><h5>Cơ Bụng</h5>Phòng 9</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="class-cardio" class="container tab-pane fade p-0">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-lg m-0">
+                        <thead class="bg-secondary text-white text-center">
+                            <tr>
+                                <th>Time</th>
+                                <th>Monday</th>
+                                <th>Tuesday</th>
+                                <th>Wednesday</th>
+                                <th>Thursday</th>
+                                <th>Friday</th>
+                                <th>Saturday</th>
+                                <th>Sunday</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <tr>
+                                <th class="bg-secondary text-white align-middle">6.00am - 8.00am</th>
+                                <td class="bg-primary text-white"><h5 class="text-white">Cardio</h5>John Deo</td>
+                                <td></td>
+                                <td><h5>Crossfit</h5>Adam Phillips</td>
+                                <td></td>
+                                <td><h5>Power Lifting</h5>James Alien</td>
+                                <td></td>
+                                <td class="bg-primary text-white"><h5 class="text-white">Cardio</h5>John Deo</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-secondary text-white align-middle">10.00am - 12.00am</th>
+                                <td></td>
+                                <td><h5>Power Lifting</h5>James Alien</td>
+                                <td></td>
+                                <td class="bg-primary text-white"><h5 class="text-white">Cardio</h5>John Deo</td>
+                                <td></td>
+                                <td><h5>Crossfit</h5>Adam Phillips</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th class="bg-secondary text-white align-middle">5.00pm - 7.00pm</th>
+                                <td><h5>Crossfit</h5>Adam Phillips</td>
+                                <td></td>
+                                <td><h5>Power Lifting</h5>James Alien</td>
+                                <td></td>
+                                <td class="bg-primary text-white"><h5 class="text-white">Cardio</h5>John Deo</td>
+                                <td></td>
+                                <td><h5>Crossfit</h5>Adam Phillips</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-secondary text-white align-middle">7.00pm - 9.00pm</th>
+                                <td></td>
+                                <td class="bg-primary text-white"><h5 class="text-white">Cardio</h5>John Deo</td>
+                                <td></td>
+                                <td><h5>Crossfit</h5>Adam Phillips</td>
+                                <td></td>
+                                <td><h5>Power Lifting</h5>James Alien</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="class-crossfit" class="container tab-pane fade p-0">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-lg m-0">
+                        <thead class="bg-secondary text-white text-center">
+                            <tr>
+                                <th>Time</th>
+                                <th>Monday</th>
+                                <th>Tuesday</th>
+                                <th>Wednesday</th>
+                                <th>Thursday</th>
+                                <th>Friday</th>
+                                <th>Saturday</th>
+                                <th>Sunday</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <tr>
+                                <th class="bg-secondary text-white align-middle">6.00am - 8.00am</th>
+                                <td><h5>Cardio</h5>John Deo</td>
+                                <td></td>
+                                <td class="bg-primary text-white"><h5 class="text-white">Crossfit</h5>Adam Phillips</td>
+                                <td></td>
+                                <td><h5>Power Lifting</h5>James Alien</td>
+                                <td></td>
+                                <td><h5>Cardio</h5>John Deo</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-secondary text-white align-middle">10.00am - 12.00am</th>
+                                <td></td>
+                                <td><h5>Power Lifting</h5>James Alien</td>
+                                <td></td>
+                                <td><h5>Cardio</h5>John Deo</td>
+                                <td></td>
+                                <td class="bg-primary text-white"><h5 class="text-white">Crossfit</h5>Adam Phillips</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th class="bg-secondary text-white align-middle">5.00pm - 7.00pm</th>
+                                <td class="bg-primary text-white"><h5 class="text-white">Crossfit</h5>Adam Phillips</td>
+                                <td></td>
+                                <td><h5>Power Lifting</h5>James Alien</td>
+                                <td></td>
+                                <td><h5>Cardio</h5>John Deo</td>
+                                <td></td>
+                                <td class="bg-primary text-white"><h5 class="text-white">Crossfit</h5>Adam Phillips</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-secondary text-white align-middle">7.00pm - 9.00pm</th>
+                                <td></td>
+                                <td><h5>Cardio</h5>John Deo</td>
+                                <td></td>
+                                <td class="bg-primary text-white"><h5 class="text-white">Crossfit</h5>Adam Phillips</td>
+                                <td></td>
+                                <td><h5>Power Lifting</h5>James Alien</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="class-powerlifting" class="container tab-pane fade p-0">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-lg m-0">
+                        <thead class="bg-secondary text-white text-center">
+                            <tr>
+                                <th>Time</th>
+                                <th>Monday</th>
+                                <th>Tuesday</th>
+                                <th>Wednesday</th>
+                                <th>Thursday</th>
+                                <th>Friday</th>
+                                <th>Saturday</th>
+                                <th>Sunday</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <tr>
+                                <th class="bg-secondary text-white align-middle">6.00am - 8.00am</th>
+                                <td><h5>Cardio</h5>John Deo</td>
+                                <td></td>
+                                <td><h5>Crossfit</h5>Adam Phillips</td>
+                                <td></td>
+                                <td class="bg-primary text-white"><h5 class="text-white">Power Lifting</h5>James Alien</td>
+                                <td></td>
+                                <td><h5>Cardio</h5>John Deo</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-secondary text-white align-middle">10.00am - 12.00am</th>
+                                <td></td>
+                                <td class="bg-primary text-white"><h5 class="text-white">Power Lifting</h5>James Alien</td>
+                                <td></td>
+                                <td><h5>Cardio</h5>John Deo</td>
+                                <td></td>
+                                <td><h5>Crossfit</h5>Adam Phillips</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th class="bg-secondary text-white align-middle">5.00pm - 7.00pm</th>
+                                <td><h5>Crossfit</h5>Adam Phillips</td>
+                                <td></td>
+                                <td class="bg-primary text-white"><h5 class="text-white">Power Lifting</h5>James Alien</td>
+                                <td></td>
+                                <td><h5>Cardio</h5>John Deo</td>
+                                <td></td>
+                                <td><h5>Crossfit</h5>Adam Phillips</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-secondary text-white align-middle">7.00pm - 9.00pm</th>
+                                <td></td>
+                                <td><h5>Cardio</h5>John Deo</td>
+                                <td></td>
+                                <td><h5>Crossfit</h5>Adam Phillips</td>
+                                <td></td>
+                                <td class="bg-primary text-white"><h5 class="text-white">Power Lifting</h5>James Alien</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ Class Timetable End 
+</div>
+</body>
