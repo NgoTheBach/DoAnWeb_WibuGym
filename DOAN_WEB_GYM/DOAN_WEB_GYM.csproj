@@ -121,12 +121,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CauLacBoController.cs" />
+    <Compile Include="Controllers\ChiTietKhoaTapController.cs" />
     <Compile Include="Controllers\ChungToiController.cs" />
     <Compile Include="Controllers\GYMController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhoaTapController.cs" />
     <Compile Include="Controllers\LienHeController.cs" />
     <Compile Include="Controllers\TaiKhoanController.cs" />
+    <Compile Include="Controllers\ThongTinChiTietController.cs" />
     <Compile Include="Controllers\TinTucController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -232,6 +234,13 @@
     <Content Include="Views\TinTuc\KienThucSucKhoe.cshtml" />
     <Content Include="Views\TaiKhoan\DangNhap.cshtml" />
     <Content Include="Views\TaiKhoan\DangKy.cshtml" />
+    <Content Include="Views\ThongTinChiTiet\Details.cshtml" />
+    <Content Include="Views\ChiTietKhoaTap\rpm_coure.cshtml" />
+    <Content Include="Views\ChiTietKhoaTap\yoga_coure.cshtml" />
+    <Content Include="Views\ChiTietKhoaTap\kickfit_coure.cshtml" />
+    <Content Include="Views\ChiTietKhoaTap\bodypump_coure.cshtml" />
+    <Content Include="Views\ChiTietKhoaTap\bodybalance_coure.cshtml" />
+    <Content Include="Views\ChiTietKhoaTap\bodycompat_coure.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
