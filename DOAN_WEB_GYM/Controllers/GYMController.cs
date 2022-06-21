@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DOAN_WEB_GYM.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,12 @@ namespace DOAN_WEB_GYM.Controllers
 {
     public class GYMController : Controller
     {
+        MyDataDataContext db = new MyDataDataContext();
         // GET: GYM
         public ActionResult Index()
         {
-            return View();
+            var dbCourses = (from s in db.KhoaTaps select s);
+            return View(dbCourses);
         }
     }
 }

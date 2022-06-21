@@ -30,12 +30,12 @@ namespace DOAN_WEB_GYM.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertCLB(CLB instance);
-    partial void UpdateCLB(CLB instance);
-    partial void DeleteCLB(CLB instance);
     partial void InsertDangKyKhoaTap(DangKyKhoaTap instance);
     partial void UpdateDangKyKhoaTap(DangKyKhoaTap instance);
     partial void DeleteDangKyKhoaTap(DangKyKhoaTap instance);
+    partial void InsertCLB(CLB instance);
+    partial void UpdateCLB(CLB instance);
+    partial void DeleteCLB(CLB instance);
     partial void InsertKhoaTap(KhoaTap instance);
     partial void UpdateKhoaTap(KhoaTap instance);
     partial void DeleteKhoaTap(KhoaTap instance);
@@ -83,19 +83,19 @@ namespace DOAN_WEB_GYM.Models
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<CLB> CLBs
-		{
-			get
-			{
-				return this.GetTable<CLB>();
-			}
-		}
-		
 		public System.Data.Linq.Table<DangKyKhoaTap> DangKyKhoaTaps
 		{
 			get
 			{
 				return this.GetTable<DangKyKhoaTap>();
+			}
+		}
+		
+		public System.Data.Linq.Table<CLB> CLBs
+		{
+			get
+			{
+				return this.GetTable<CLB>();
 			}
 		}
 		
@@ -131,14 +131,6 @@ namespace DOAN_WEB_GYM.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<TaiKhoanQTV> TaiKhoanQTVs
-		{
-			get
-			{
-				return this.GetTable<TaiKhoanQTV>();
-			}
-		}
-		
 		public System.Data.Linq.Table<TinTuc> TinTucs
 		{
 			get
@@ -146,167 +138,13 @@ namespace DOAN_WEB_GYM.Models
 				return this.GetTable<TinTuc>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CLB")]
-	public partial class CLB : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _idCLB;
-		
-		private string _CLBName;
-		
-		private string _addressCLB;
-		
-		private string _urlImage;
-		
-		private EntitySet<KhoaTap> _KhoaTaps;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidCLBChanging(int value);
-    partial void OnidCLBChanged();
-    partial void OnCLBNameChanging(string value);
-    partial void OnCLBNameChanged();
-    partial void OnaddressCLBChanging(string value);
-    partial void OnaddressCLBChanged();
-    partial void OnurlImageChanging(string value);
-    partial void OnurlImageChanged();
-    #endregion
-		
-		public CLB()
-		{
-			this._KhoaTaps = new EntitySet<KhoaTap>(new Action<KhoaTap>(this.attach_KhoaTaps), new Action<KhoaTap>(this.detach_KhoaTaps));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCLB", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int idCLB
+		public System.Data.Linq.Table<TaiKhoanQTV> TaiKhoanQTVs
 		{
 			get
 			{
-				return this._idCLB;
+				return this.GetTable<TaiKhoanQTV>();
 			}
-			set
-			{
-				if ((this._idCLB != value))
-				{
-					this.OnidCLBChanging(value);
-					this.SendPropertyChanging();
-					this._idCLB = value;
-					this.SendPropertyChanged("idCLB");
-					this.OnidCLBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLBName", DbType="NVarChar(128) NOT NULL", CanBeNull=false)]
-		public string CLBName
-		{
-			get
-			{
-				return this._CLBName;
-			}
-			set
-			{
-				if ((this._CLBName != value))
-				{
-					this.OnCLBNameChanging(value);
-					this.SendPropertyChanging();
-					this._CLBName = value;
-					this.SendPropertyChanged("CLBName");
-					this.OnCLBNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_addressCLB", DbType="NVarChar(128)")]
-		public string addressCLB
-		{
-			get
-			{
-				return this._addressCLB;
-			}
-			set
-			{
-				if ((this._addressCLB != value))
-				{
-					this.OnaddressCLBChanging(value);
-					this.SendPropertyChanging();
-					this._addressCLB = value;
-					this.SendPropertyChanged("addressCLB");
-					this.OnaddressCLBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlImage", DbType="VarChar(128)")]
-		public string urlImage
-		{
-			get
-			{
-				return this._urlImage;
-			}
-			set
-			{
-				if ((this._urlImage != value))
-				{
-					this.OnurlImageChanging(value);
-					this.SendPropertyChanging();
-					this._urlImage = value;
-					this.SendPropertyChanged("urlImage");
-					this.OnurlImageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CLB_KhoaTap", Storage="_KhoaTaps", ThisKey="idCLB", OtherKey="idCLB")]
-		public EntitySet<KhoaTap> KhoaTaps
-		{
-			get
-			{
-				return this._KhoaTaps;
-			}
-			set
-			{
-				this._KhoaTaps.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_KhoaTaps(KhoaTap entity)
-		{
-			this.SendPropertyChanging();
-			entity.CLB = this;
-		}
-		
-		private void detach_KhoaTaps(KhoaTap entity)
-		{
-			this.SendPropertyChanging();
-			entity.CLB = null;
 		}
 	}
 	
@@ -478,6 +316,192 @@ namespace DOAN_WEB_GYM.Models
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CLB")]
+	public partial class CLB : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idCLB;
+		
+		private string _CLBName;
+		
+		private string _addressCLB;
+		
+		private string _urlImage;
+		
+		private string _phoneNumber;
+		
+		private EntitySet<KhoaTap> _KhoaTaps;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidCLBChanging(int value);
+    partial void OnidCLBChanged();
+    partial void OnCLBNameChanging(string value);
+    partial void OnCLBNameChanged();
+    partial void OnaddressCLBChanging(string value);
+    partial void OnaddressCLBChanged();
+    partial void OnurlImageChanging(string value);
+    partial void OnurlImageChanged();
+    partial void OnphoneNumberChanging(string value);
+    partial void OnphoneNumberChanged();
+    #endregion
+		
+		public CLB()
+		{
+			this._KhoaTaps = new EntitySet<KhoaTap>(new Action<KhoaTap>(this.attach_KhoaTaps), new Action<KhoaTap>(this.detach_KhoaTaps));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCLB", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idCLB
+		{
+			get
+			{
+				return this._idCLB;
+			}
+			set
+			{
+				if ((this._idCLB != value))
+				{
+					this.OnidCLBChanging(value);
+					this.SendPropertyChanging();
+					this._idCLB = value;
+					this.SendPropertyChanged("idCLB");
+					this.OnidCLBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLBName", DbType="NVarChar(128) NOT NULL", CanBeNull=false)]
+		public string CLBName
+		{
+			get
+			{
+				return this._CLBName;
+			}
+			set
+			{
+				if ((this._CLBName != value))
+				{
+					this.OnCLBNameChanging(value);
+					this.SendPropertyChanging();
+					this._CLBName = value;
+					this.SendPropertyChanged("CLBName");
+					this.OnCLBNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_addressCLB", DbType="NVarChar(128)")]
+		public string addressCLB
+		{
+			get
+			{
+				return this._addressCLB;
+			}
+			set
+			{
+				if ((this._addressCLB != value))
+				{
+					this.OnaddressCLBChanging(value);
+					this.SendPropertyChanging();
+					this._addressCLB = value;
+					this.SendPropertyChanged("addressCLB");
+					this.OnaddressCLBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlImage", DbType="VarChar(128)")]
+		public string urlImage
+		{
+			get
+			{
+				return this._urlImage;
+			}
+			set
+			{
+				if ((this._urlImage != value))
+				{
+					this.OnurlImageChanging(value);
+					this.SendPropertyChanging();
+					this._urlImage = value;
+					this.SendPropertyChanged("urlImage");
+					this.OnurlImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phoneNumber", DbType="NChar(11)")]
+		public string phoneNumber
+		{
+			get
+			{
+				return this._phoneNumber;
+			}
+			set
+			{
+				if ((this._phoneNumber != value))
+				{
+					this.OnphoneNumberChanging(value);
+					this.SendPropertyChanging();
+					this._phoneNumber = value;
+					this.SendPropertyChanged("phoneNumber");
+					this.OnphoneNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CLB_KhoaTap", Storage="_KhoaTaps", ThisKey="idCLB", OtherKey="idCLB")]
+		public EntitySet<KhoaTap> KhoaTaps
+		{
+			get
+			{
+				return this._KhoaTaps;
+			}
+			set
+			{
+				this._KhoaTaps.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_KhoaTaps(KhoaTap entity)
+		{
+			this.SendPropertyChanging();
+			entity.CLB = this;
+		}
+		
+		private void detach_KhoaTaps(KhoaTap entity)
+		{
+			this.SendPropertyChanging();
+			entity.CLB = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.KhoaTap")]
 	public partial class KhoaTap : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -488,11 +512,11 @@ namespace DOAN_WEB_GYM.Models
 		
 		private string _nameCourse;
 		
-		private System.Nullable<System.TimeSpan> _startTime;
+		private System.Nullable<System.DateTime> _startTime;
 		
-		private System.Nullable<System.TimeSpan> _dueTime;
+		private System.Nullable<System.DateTime> _dueTime;
 		
-		private System.Nullable<System.DateTime> _daysInWeek;
+		private string _daysInWeek;
 		
 		private System.Nullable<int> _price;
 		
@@ -500,17 +524,13 @@ namespace DOAN_WEB_GYM.Models
 		
 		private string _urlImage;
 		
-		private string _typeCourseName;
+		private System.Nullable<bool> _typeCourseName;
 		
 		private System.Nullable<int> _idCLB;
-		
-		private System.Nullable<int> _idPT;
 		
 		private EntitySet<DangKyKhoaTap> _DangKyKhoaTaps;
 		
 		private EntityRef<CLB> _CLB;
-		
-		private EntityRef<PT> _PT;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -520,11 +540,11 @@ namespace DOAN_WEB_GYM.Models
     partial void OnidCourseChanged();
     partial void OnnameCourseChanging(string value);
     partial void OnnameCourseChanged();
-    partial void OnstartTimeChanging(System.Nullable<System.TimeSpan> value);
+    partial void OnstartTimeChanging(System.Nullable<System.DateTime> value);
     partial void OnstartTimeChanged();
-    partial void OndueTimeChanging(System.Nullable<System.TimeSpan> value);
+    partial void OndueTimeChanging(System.Nullable<System.DateTime> value);
     partial void OndueTimeChanged();
-    partial void OndaysInWeekChanging(System.Nullable<System.DateTime> value);
+    partial void OndaysInWeekChanging(string value);
     partial void OndaysInWeekChanged();
     partial void OnpriceChanging(System.Nullable<int> value);
     partial void OnpriceChanged();
@@ -532,19 +552,16 @@ namespace DOAN_WEB_GYM.Models
     partial void OndescriptionKTChanged();
     partial void OnurlImageChanging(string value);
     partial void OnurlImageChanged();
-    partial void OntypeCourseNameChanging(string value);
+    partial void OntypeCourseNameChanging(System.Nullable<bool> value);
     partial void OntypeCourseNameChanged();
     partial void OnidCLBChanging(System.Nullable<int> value);
     partial void OnidCLBChanged();
-    partial void OnidPTChanging(System.Nullable<int> value);
-    partial void OnidPTChanged();
     #endregion
 		
 		public KhoaTap()
 		{
 			this._DangKyKhoaTaps = new EntitySet<DangKyKhoaTap>(new Action<DangKyKhoaTap>(this.attach_DangKyKhoaTaps), new Action<DangKyKhoaTap>(this.detach_DangKyKhoaTaps));
 			this._CLB = default(EntityRef<CLB>);
-			this._PT = default(EntityRef<PT>);
 			OnCreated();
 		}
 		
@@ -588,8 +605,8 @@ namespace DOAN_WEB_GYM.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_startTime", DbType="Time")]
-		public System.Nullable<System.TimeSpan> startTime
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_startTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> startTime
 		{
 			get
 			{
@@ -608,8 +625,8 @@ namespace DOAN_WEB_GYM.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dueTime", DbType="Time")]
-		public System.Nullable<System.TimeSpan> dueTime
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dueTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> dueTime
 		{
 			get
 			{
@@ -628,8 +645,8 @@ namespace DOAN_WEB_GYM.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_daysInWeek", DbType="DateTime")]
-		public System.Nullable<System.DateTime> daysInWeek
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_daysInWeek", DbType="NVarChar(128)")]
+		public string daysInWeek
 		{
 			get
 			{
@@ -708,8 +725,8 @@ namespace DOAN_WEB_GYM.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_typeCourseName", DbType="NVarChar(128)")]
-		public string typeCourseName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_typeCourseName", DbType="Bit")]
+		public System.Nullable<bool> typeCourseName
 		{
 			get
 			{
@@ -748,30 +765,6 @@ namespace DOAN_WEB_GYM.Models
 					this._idCLB = value;
 					this.SendPropertyChanged("idCLB");
 					this.OnidCLBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idPT", DbType="Int")]
-		public System.Nullable<int> idPT
-		{
-			get
-			{
-				return this._idPT;
-			}
-			set
-			{
-				if ((this._idPT != value))
-				{
-					if (this._PT.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidPTChanging(value);
-					this.SendPropertyChanging();
-					this._idPT = value;
-					this.SendPropertyChanged("idPT");
-					this.OnidPTChanged();
 				}
 			}
 		}
@@ -819,40 +812,6 @@ namespace DOAN_WEB_GYM.Models
 						this._idCLB = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("CLB");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PT_KhoaTap", Storage="_PT", ThisKey="idPT", OtherKey="idPT", IsForeignKey=true)]
-		public PT PT
-		{
-			get
-			{
-				return this._PT.Entity;
-			}
-			set
-			{
-				PT previousValue = this._PT.Entity;
-				if (((previousValue != value) 
-							|| (this._PT.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PT.Entity = null;
-						previousValue.KhoaTaps.Remove(this);
-					}
-					this._PT.Entity = value;
-					if ((value != null))
-					{
-						value.KhoaTaps.Add(this);
-						this._idPT = value.idPT;
-					}
-					else
-					{
-						this._idPT = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("PT");
 				}
 			}
 		}
@@ -1014,13 +973,11 @@ namespace DOAN_WEB_GYM.Models
 		
 		private string _namePT;
 		
-		private System.Nullable<int> _phoneNumber;
+		private string _phoneNumber;
 		
 		private string _gmail;
 		
 		private string _urlImage;
-		
-		private EntitySet<KhoaTap> _KhoaTaps;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1030,7 +987,7 @@ namespace DOAN_WEB_GYM.Models
     partial void OnidPTChanged();
     partial void OnnamePTChanging(string value);
     partial void OnnamePTChanged();
-    partial void OnphoneNumberChanging(System.Nullable<int> value);
+    partial void OnphoneNumberChanging(string value);
     partial void OnphoneNumberChanged();
     partial void OngmailChanging(string value);
     partial void OngmailChanged();
@@ -1040,7 +997,6 @@ namespace DOAN_WEB_GYM.Models
 		
 		public PT()
 		{
-			this._KhoaTaps = new EntitySet<KhoaTap>(new Action<KhoaTap>(this.attach_KhoaTaps), new Action<KhoaTap>(this.detach_KhoaTaps));
 			OnCreated();
 		}
 		
@@ -1084,8 +1040,8 @@ namespace DOAN_WEB_GYM.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phoneNumber", DbType="Int")]
-		public System.Nullable<int> phoneNumber
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phoneNumber", DbType="NChar(11)")]
+		public string phoneNumber
 		{
 			get
 			{
@@ -1144,19 +1100,6 @@ namespace DOAN_WEB_GYM.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PT_KhoaTap", Storage="_KhoaTaps", ThisKey="idPT", OtherKey="idPT")]
-		public EntitySet<KhoaTap> KhoaTaps
-		{
-			get
-			{
-				return this._KhoaTaps;
-			}
-			set
-			{
-				this._KhoaTaps.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1175,18 +1118,6 @@ namespace DOAN_WEB_GYM.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_KhoaTaps(KhoaTap entity)
-		{
-			this.SendPropertyChanging();
-			entity.PT = this;
-		}
-		
-		private void detach_KhoaTaps(KhoaTap entity)
-		{
-			this.SendPropertyChanging();
-			entity.PT = null;
 		}
 	}
 	
@@ -1424,51 +1355,6 @@ namespace DOAN_WEB_GYM.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TaiKhoanQTV")]
-	public partial class TaiKhoanQTV
-	{
-		
-		private int _IDTaiKhoan;
-		
-		private string _MatKhau;
-		
-		public TaiKhoanQTV()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTaiKhoan", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int IDTaiKhoan
-		{
-			get
-			{
-				return this._IDTaiKhoan;
-			}
-			set
-			{
-				if ((this._IDTaiKhoan != value))
-				{
-					this._IDTaiKhoan = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatKhau", DbType="VarChar(20)")]
-		public string MatKhau
-		{
-			get
-			{
-				return this._MatKhau;
-			}
-			set
-			{
-				if ((this._MatKhau != value))
-				{
-					this._MatKhau = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TinTuc")]
 	public partial class TinTuc : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1688,6 +1574,51 @@ namespace DOAN_WEB_GYM.Models
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TaiKhoanQTV")]
+	public partial class TaiKhoanQTV
+	{
+		
+		private int _IDTaiKhoan;
+		
+		private string _MatKhau;
+		
+		public TaiKhoanQTV()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTaiKhoan", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int IDTaiKhoan
+		{
+			get
+			{
+				return this._IDTaiKhoan;
+			}
+			set
+			{
+				if ((this._IDTaiKhoan != value))
+				{
+					this._IDTaiKhoan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatKhau", DbType="VarChar(20)")]
+		public string MatKhau
+		{
+			get
+			{
+				return this._MatKhau;
+			}
+			set
+			{
+				if ((this._MatKhau != value))
+				{
+					this._MatKhau = value;
+				}
 			}
 		}
 	}

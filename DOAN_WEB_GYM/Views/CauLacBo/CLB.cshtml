@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<DOAN_WEB_GYM.Models.CLB>
 @{
     ViewBag.Title = "CLB";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
@@ -70,7 +70,27 @@
 
     </div>
     <div class="slider-row">
-        <div class="col-4">
+        @foreach (var item in Model)
+        {
+            <div class="col-4">
+                <a href="/ThongTinChiTiet/Details">
+                    <img src="@item.urlImage" alt="Image" width="350" height="200">
+                    <div class="item-gym">
+                        <a href="/ThongTinChiTiet/Details" class="title">@item.CLBName </a>
+                        <div class="icon-list">
+                            <i class="remixicon-map-pin-fill"></i>
+                            <front size="5px">
+                                <h6>@item.addressCLB</h6>
+                            </front>
+                        </div>
+                        <div class="phone">
+                            <i class="remixicon-phone-fill"></i>
+                            <front size="3px"> <a href="@item.phoneNumber">@item.phoneNumber</a></front>
+                        </div>
+                    </div>
+            </div>
+        }
+        @*<div class="col-4">
             <a href="/ThongTinChiTiet/Details">
                 <img src="~/Content/Images/clb1.jpg" alt="Image" width="350" height="200">
                 <div class="item-gym">
@@ -121,118 +141,118 @@
                         <front size="3px"> <a href="1900123456">1900123456</a></front>
                     </div>
                 </div>
-        </div>
+        </div>*@
 
     </div>
-    <div class="slider-row">
-        <div class="col-4">
-            <a href="/ThongTinChiTiet/Details">
-                <img src="~/Content/Images/clb5.jpg">
-                <div class="item-gym">
-                    <a href="/ThongTinChiTiet/Details" class="title">Lê Lợi GYM </a>
-                    <div class="icon-list">
-                        <i class="remixicon-map-pin-fill"></i>
-                        <front size="5px">
-                            <h6> 28 Lê Lợi, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh</h6>
-                        </front>
+    @*<div class="slider-row">
+            <div class="col-4">
+                <a href="/ThongTinChiTiet/Details">
+                    <img src="~/Content/Images/clb5.jpg">
+                    <div class="item-gym">
+                        <a href="/ThongTinChiTiet/Details" class="title">Lê Lợi GYM </a>
+                        <div class="icon-list">
+                            <i class="remixicon-map-pin-fill"></i>
+                            <front size="5px">
+                                <h6> 28 Lê Lợi, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh</h6>
+                            </front>
+                        </div>
+                        <div class="phone">
+                            <i class="remixicon-phone-fill"></i>
+                            <front size="3px"> <a href="1900123456">1900123456</a></front>
+                        </div>
                     </div>
-                    <div class="phone">
-                        <i class="remixicon-phone-fill"></i>
-                        <front size="3px"> <a href="1900123456">1900123456</a></front>
+            </div>
+            <div class="col-4">
+                <a href="/ThongTinChiTiet/Details">
+                    <img src="~/Content/Images/clb6].jpg">
+                    <div class="item-gym">
+                        <a href="/ThongTinChiTiet/Details" class="title">Style GYM </a>
+                        <div class="icon-list">
+                            <i class="remixicon-map-pin-fill"></i>
+                            <front size="5px">
+                                <h6>TTTM Vạn Hạnh Mall, Phường 12, Quận 10, Thành phố Hồ Chí Minh</h6>
+                            </front>
+                        </div>
+                        <div class="phone">
+                            <i class="remixicon-phone-fill"></i>
+                            <front size="3px"> <a href="1900123456">1900123456</a></front>
+                        </div>
                     </div>
-                </div>
-        </div>
-        <div class="col-4">
-            <a href="/ThongTinChiTiet/Details">
-                <img src="~/Content/Images/clb6].jpg">
-                <div class="item-gym">
-                    <a href="/ThongTinChiTiet/Details" class="title">Style GYM </a>
-                    <div class="icon-list">
-                        <i class="remixicon-map-pin-fill"></i>
-                        <front size="5px">
-                            <h6>TTTM Vạn Hạnh Mall, Phường 12, Quận 10, Thành phố Hồ Chí Minh</h6>
-                        </front>
-                    </div>
-                    <div class="phone">
-                        <i class="remixicon-phone-fill"></i>
-                        <front size="3px"> <a href="1900123456">1900123456</a></front>
-                    </div>
-                </div>
-        </div>
+            </div>
 
-        <div class="col-4">
-            <a href="/ThongTinChiTiet/Details">
-                <img src="~/Content/Images/clb7.jpg">
-                <div class="item-gym">
-                    <a href="/ThongTinChiTiet/Details" class="title">Sunrise GYM </a>
-                    <div class="icon-list">
-                        <i class="remixicon-map-pin-fill"></i>
-                        <front size="5px">
-                            <h6> 23 - 25 - 27 Nguyễn Hữu Thọ, Phường Tân Hưng, Quận 7, Thành phố Hồ Chí Minh</h6>
-                        </front>
+            <div class="col-4">
+                <a href="/ThongTinChiTiet/Details">
+                    <img src="~/Content/Images/clb7.jpg">
+                    <div class="item-gym">
+                        <a href="/ThongTinChiTiet/Details" class="title">Sunrise GYM </a>
+                        <div class="icon-list">
+                            <i class="remixicon-map-pin-fill"></i>
+                            <front size="5px">
+                                <h6> 23 - 25 - 27 Nguyễn Hữu Thọ, Phường Tân Hưng, Quận 7, Thành phố Hồ Chí Minh</h6>
+                            </front>
+                        </div>
+                        <div class="phone">
+                            <i class="remixicon-phone-fill"></i>
+                            <front size="3px"> <a href="1900123456">1900123456</a></front>
+                        </div>
                     </div>
-                    <div class="phone">
-                        <i class="remixicon-phone-fill"></i>
-                        <front size="3px"> <a href="1900123456">1900123456</a></front>
-                    </div>
-                </div>
-        </div>
+            </div>
 
-    </div>
-    <div class="slider-row">
-        <div class="col-4">
-            <a href="/ThongTinChiTiet/Details">
-                <img src="~/Content/Images/clb9.jpg">
-                <div class="item-gym">
-                    <a href="/ThongTinChiTiet/Details" class="title">Street GYM </a>
-                    <div class="icon-list">
-                        <i class="remixicon-map-pin-fill"></i>
-                        <front size="5px">
-                            <h6> 144 Lê Văn Việt, Phường Hiệp Phú, Quận 9, Thành phố Hồ Chí Minh</h6>
-                        </front>
-                    </div>
-                    <div class="phone">
-                        <i class="remixicon-phone-fill"></i>
-                        <front size="3px"> <a href="1900123456">1900123456</a></front>
-                    </div>
-                </div>
         </div>
-        <div class="col-4">
-            <a href="/ThongTinChiTiet/Details">
-                <img src="~/Content/Images/clb10.jpg">
-                <div class="item-gym">
-                    <a href="/ThongTinChiTiet/Details" class="title">MoonPower GYM </a>
-                    <div class="icon-list">
-                        <i class="remixicon-map-pin-fill"></i>
-                        <front size="5px">
-                            <h6> 526 Điện Biên Phủ, Phường 21, Quận Bình Thạnh, Thành phố Hồ Chí Minh</h6>
-                        </front>
+        <div class="slider-row">
+            <div class="col-4">
+                <a href="/ThongTinChiTiet/Details">
+                    <img src="~/Content/Images/clb9.jpg">
+                    <div class="item-gym">
+                        <a href="/ThongTinChiTiet/Details" class="title">Street GYM </a>
+                        <div class="icon-list">
+                            <i class="remixicon-map-pin-fill"></i>
+                            <front size="5px">
+                                <h6> 144 Lê Văn Việt, Phường Hiệp Phú, Quận 9, Thành phố Hồ Chí Minh</h6>
+                            </front>
+                        </div>
+                        <div class="phone">
+                            <i class="remixicon-phone-fill"></i>
+                            <front size="3px"> <a href="1900123456">1900123456</a></front>
+                        </div>
                     </div>
-                    <div class="phone">
-                        <i class="remixicon-phone-fill"></i>
-                        <front size="3px"> <a href="1900123456">1900123456</a></front>
+            </div>
+            <div class="col-4">
+                <a href="/ThongTinChiTiet/Details">
+                    <img src="~/Content/Images/clb10.jpg">
+                    <div class="item-gym">
+                        <a href="/ThongTinChiTiet/Details" class="title">MoonPower GYM </a>
+                        <div class="icon-list">
+                            <i class="remixicon-map-pin-fill"></i>
+                            <front size="5px">
+                                <h6> 526 Điện Biên Phủ, Phường 21, Quận Bình Thạnh, Thành phố Hồ Chí Minh</h6>
+                            </front>
+                        </div>
+                        <div class="phone">
+                            <i class="remixicon-phone-fill"></i>
+                            <front size="3px"> <a href="1900123456">1900123456</a></front>
+                        </div>
                     </div>
-                </div>
-        </div>
+            </div>
 
-        <div class="col-4">
-            <a href="/ThongTinChiTiet/Details">
-                <img src="~/Content/Images/clb11.jpg">
-                <div class="item-gym">
-                    <a href="/ThongTinChiTiet/Details" class="title">WaterBay Sport GYM </a>
-                    <div class="icon-list">
-                        <i class="remixicon-map-pin-fill"></i>
-                        <front size="5px">
-                            <h6> số 25-26 Mai Chí Thọ, Phường Bình Khánh, Quận 2, Thành phố Hồ Chí Minh</h6>
-                        </front>
+            <div class="col-4">
+                <a href="/ThongTinChiTiet/Details">
+                    <img src="~/Content/Images/clb11.jpg">
+                    <div class="item-gym">
+                        <a href="/ThongTinChiTiet/Details" class="title">WaterBay Sport GYM </a>
+                        <div class="icon-list">
+                            <i class="remixicon-map-pin-fill"></i>
+                            <front size="5px">
+                                <h6> số 25-26 Mai Chí Thọ, Phường Bình Khánh, Quận 2, Thành phố Hồ Chí Minh</h6>
+                            </front>
+                        </div>
+                        <div class="phone">
+                            <i class="remixicon-phone-fill"></i>
+                            <front size="3px"> <a href="1900123456">1900123456</a></front>
+                        </div>
                     </div>
-                    <div class="phone">
-                        <i class="remixicon-phone-fill"></i>
-                        <front size="3px"> <a href="1900123456">1900123456</a></front>
-                    </div>
-                </div>
-        </div>
-    </div>
+            </div>
+        </div>*@
     <!-- GYM Feature End -->
     <!-- Testimonial Start -->
     <div class="container-fluid position-relative testimonial mt-5" style="margin-bottom: 90px;">
