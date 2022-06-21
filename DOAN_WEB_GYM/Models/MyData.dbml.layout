@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="MyData">
+  <DataContextMoniker Name="/MyDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="572220e6-c5d6-4a6a-9783-0294b29a8eea" absoluteBounds="5.125, 1.375, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/MyDataDataContext/KhoaTap" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1846a06a-e80f-4a50-8fa9-5a3d68e362ca" absoluteBounds="5.14, 1.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

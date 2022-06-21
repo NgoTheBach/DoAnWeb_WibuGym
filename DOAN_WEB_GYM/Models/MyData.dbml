@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="WiBuGym" Class="MyDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=LAPTOP-Q42JES6F\SQLEXPRESS;Initial Catalog=WiBuGym;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="WiBuGymConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.KhoaTap" Member="KhoaTaps">
+    <Type Name="KhoaTap">
+      <Column Name="idCourse" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nameCourse" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="startTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dueTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="daysInWeek" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="price" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idTypeCourse" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="urlImage" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

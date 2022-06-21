@@ -13,21 +13,24 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <title>Shop Homepage - Start Bootstrap Template</title>
 
-    <!-- Flaticon Font ~/Content/lib/flaticon/font/flaticon.css-->
-    <link href="@Url.Content("~/Content/lib/flaticon/font/flaticon.css")" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Customized Bootstrap Stylesheet ~/Content/css/style.min.css -->
-    <link href="@Url.Content("~/Content/css/style.min.css")" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Content/shop-homepage.css" rel="stylesheet">
 
-    <!--@*=========================*@-->
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
-
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-    <div class="bg-white">
+   
+    <body class="bg-white">
         <!-- Navbar Start -->
         <div class="container-fluid p-0 nav-bar">
             <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
@@ -38,29 +41,58 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                    <div class="navbar-nav ml-auto p-4 bg-secondary">
-                        @*Home*@
-                        <a href="@Url.Action("Index", "GYM")" class="nav-item nav-link">Trang Chủ</a>
-                        @*About Us*@
-                        <a href="@Url.Action("Chungtoi", "ChungToi")" class="nav-item nav-link">Chúng Tôi</a>
-                        @*Our Features*@
-                        <a href="@Url.Action("CLB", "CauLacBo")" class="nav-item nav-link">CLB</a>
-                        @*Classes*@
-                        <a href="@Url.Action("LichHoc", "KhoaTap")" class="nav-item nav-link">Lịch Học</a>
-                        @*Pages*@
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tin Tức</a>
-                            <div class="dropdown-menu text-capitalize">
-                                @*Blog Grid*@
-                                <a href="@Url.Action("Blog","TinTuc")" class="dropdown-item">Blog</a>
-                                @*Event*@
-                                <a href="@Url.Action("SuKien","TinTuc")" class="dropdown-item">Sự Kiện</a>
-                                @*Blog Detail*@
-                                <a href="@Url.Action("KienThucSucKhoe","TinTuc")" class="dropdown-item">Kiến thức – Sức khỏe</a>
-                            </div>
-                        </div>
-                        @*Contact*@
-                        <a href="@Url.Action("Contact", "LienHe")" class="nav-item nav-link">Liên hệ</a>
+                    <!--<div class="navbar-nav ml-auto p-4 bg-secondary">-->
+                    <!-- Home -->
+                    <!--<a href="index.html" class="nav-item nav-link active">Trang Chủ</a>-->
+                    <!-- About Us -->
+                    <!--<a href="about.html" class="nav-item nav-link">Chúng Tôi</a>-->
+                    <!-- Our Features -->
+                    <!--<a href="feature.html" class="nav-item nav-link">CLB</a>-->
+                    <!-- Classes -->
+                    <!--<a href="class.html" class="nav-item nav-link">Lịch Học</a>-->
+                    <!-- Pages -->
+                    <!--<div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tin Tức</a>
+                <div class="dropdown-menu text-capitalize">-->
+                    <!-- Blog Grid -->
+                    <!--<a href="blog.html" class="dropdown-item">Blog</a>-->
+                    <!-- Event -->
+                    <!--<a href="event.html" class="dropdown-item">Sự Kiện</a>-->
+                    <!-- Blog Detail -->
+                    <!--<a href="single.html" class="dropdown-item">Kiến thức – Sức khỏe</a>
+                    </div>
+                </div>-->
+                    <!-- Contact -->
+                    <!--<a href="contact.html" class="nav-item nav-link">Liên hệ</a>
+                </div>-->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                @Html.ActionLink("Trang Chủ", "Index", "GYM")
+                            <li>
+                                @Html.ActionLink("Chúng Tôi", "Chungtoi", "ChungToi")
+                            </li>
+                            <li>
+                                @Html.ActionLink("CLB", "CLB", "CauLacBo")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Lịch Học", "LichHoc", "KhoaTap")
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tin Tức</a>
+                                <ul class="dropdown-menu text-capitalize">
+                                    <li><a class="dropdown-item" href="@Url.Action("Blog","TinTuc")">Blog</a></li>
+                                    <li><a class="dropdown-item" href="@Url.Action("SuKien","TinTuc")">Sự Kiện</a></li>
+                                    <li><a class="dropdown-item" href="@Url.Action("KienThucSucKhoe","TinTuc")">Kiến Thức và Sức Khỏe</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                @Html.ActionLink("Liên Hệ", "Contact", "LienHe")
+                            </li>
+
+
+                        </ul>
                     </div>
                 </div>
             </nav>
@@ -71,23 +103,23 @@
         <div class="footer container-fluid mt-5 py-5 px-sm-3 px-md-5 text-white">
             <div class="row pt-5">
                 <div class="col-lg-3 col-md-6 mb-5">
-                    <h4 class="text-primary">Liên Hệ</h4>
-                    <p><i class="fa fa-map-marker"></i>10/80C XL Hà Nội, Phường Tân Phú, Thủ Đức, Thành phố Hồ Chí Minh</p>
-                    <p><i class="fa fa-phone"></i>+0358125654</p>
-                    <p><i class="fa fa-envelope"></i>wibugym@gmail.com</p>
-                    <div class="d-flex justify-content-start">
-                        <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fa fa-instagram"></i></a>
-                        <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fa fa-instagram"></i></a>
+                    <h4 class="text-primary mb-4">Liên Hệ</h4>
+                    <p><i class="fa fa-map-marker-alt mr-2"></i>10/80C XL Hà Nội, Phường Tân Phú, Thủ Đức, Thành phố Hồ Chí Minh</p>
+                    <p><i class="fa fa-phone-alt mr-2"></i>+0358125654</p>
+                    <p><i class="fa fa-envelope mr-2"></i>wibugym@gmail.com</p>
+                    <div class="d-flex justify-content-start mt-4">
+                        <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-5">
                     <h4 class="text-primary mb-4">Đến Các Trang</h4>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-white mb-2" href="@Url.Action("Index", "GYM")"><i class="fa fa-angle-right mr-2"></i>Trang Chủ</a>
-                        <a class="text-white mb-2" href="@Url.Action("Chungtoi", "ChungToi")"><i class="fa fa-angle-right mr-2"></i>Chúng Tôi</a>
-                        <a class="text-white mb-2" href="@Url.Action("CLB", "CauLacBo")"><i class="fa fa-angle-right mr-2"></i>CLB</a>
-                        <a class="text-white mb-2" href="@Url.Action("LichHoc", "KhoaTap")"><i class="fa fa-angle-right mr-2"></i>Lịch Học</a>
-                        <a class="text-white" href="@Url.Action("Contact", "LienHe")"><i class="fa fa-angle-right mr-2"></i>Liên Hệ</a>
+                        <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Trang Chủ</a>
+                        <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Chúng Tôi</a>
+                        <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>CLB</a>
+                        <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Lịch Học</a>
+                        <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Liên Hệ</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-5">
@@ -122,16 +154,15 @@
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="~/Scripts/lib/easing/easing.min.js"></script>
-        <script src="~/Scripts/lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
 
         <!-- Contact Javascript File -->
         <script src="mail/jqBootstrapValidation.min.js"></script>
         <script src="mail/contact.js"></script>
 
         <!-- Template Javascript -->
-        <script src="~/Scripts/js/main.js"></script>
+        <script src="js/main.js"></script>
 
-    </div>
-</body>
+    </body>
 </html>
