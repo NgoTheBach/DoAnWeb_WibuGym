@@ -10896,7 +10896,7 @@ a.text-dark:hover {
 .footer,
 .page-header,
 .subscribe {
-    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(../Content/Imagesbg.jpg);
+    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(../Content/Images/bg.jpg);
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover

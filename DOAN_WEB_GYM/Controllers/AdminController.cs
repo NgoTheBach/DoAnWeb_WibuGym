@@ -13,5 +13,34 @@ namespace DOAN_WEB_GYM.Controllers
         {
             return View();
         }
+        public ActionResult ManHinhAdmin()
+        {
+           
+            return View();
+        }
+        public ActionResult ThemTinTuc()
+        {
+            return View();
+        }
+        public ActionResult ThemCLB()
+        {
+            return View();
+        }
+        public ActionResult DanhSachKhoaTap()
+        {
+            return View();
+        }
+        public ActionResult DanhSachHocVien()
+        {
+            return View();
+        }
+        public ActionResult DanhSachCLB()
+        {
+            return View();
+        }
+        public ActionResult Login()
+        {
+            return View();
+        }
     }
 }
