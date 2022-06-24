@@ -1,6 +1,4 @@
-﻿@{
-    Layout = null;
-}
+﻿@{ Layout = null; }
 
 <!DOCTYPE html>
 
@@ -26,18 +24,18 @@
     <body class="h-100">
 
         <!--*******************
-        Preloader start
-    ********************-->
+            Preloader start
+        ********************-->
         <div id="preloader">
-            <div class="loader">
-                <svg class="circular" viewBox="25 25 50 50">
-                    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
-                </svg>
+                <div class="loader">
+                    <svg class="circular" viewBox="25 25 50 50">
+                        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+                    </svg>
+                </div>
             </div>
-        </div>
         <!--*******************
-        Preloader end
-    ********************-->
+            Preloader end
+        ********************-->
 
 
 
@@ -50,18 +48,19 @@
                         <div class="form-input-content">
                             <div class="card login-form mb-0">
                                 <div class="card-body pt-5">
-                                    <a class="text-center" href="index.html"> <h4>WibuGym</h4></a>
+                                    <a class="text-center" href=""> <h4>WibuGym</h4></a>
+                                    <h4 style="color:red; text-align:center">@ViewBag.Thongbao</h4>
 
-                                    <form class="mt-5 mb-5 login-input">
+                                    <form class="mt-5 mb-5 login-input" method="post">
                                         <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Email">
+                                            <input type="text" class="form-control" placeholder="Enter Admin Account" name="account">
+                                            @ViewData["Loi1"]
+                                            <input type="password" class="form-control" placeholder="Enter Admin Password" name="password">
+                                            @ViewData["Loi2"]
                                         </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password">
-                                        </div>
-                                        <button class="btn login-form__btn submit w-100">Sign In</button>
+                                        <button class="btn login-form__btn submit w-100" type="submit">Sign In</button>
                                     </form>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -71,18 +70,14 @@
         </div>
 
 
-
-
-        <!--**********************************
-        Scripts
-    ***********************************-->
-     
-
         <script src="~/Content/plugins/common/common.min.js"></script>
-        <script src="~/Content/js/custom.min.js"></script>
-        <script src="~/Content/js/settings.js"></script>
-        <script src="~/Content/js/gleek.js"></script>
-        <script src="~/Content/js/styleSwitcher.js"></script>
+            <script src="~/Content/js/custom.min.js"></script>
+            <script src="~/Content/js/settings.js"></script>
+            <script src="~/Content/js/gleek.js"></script>
+            <script src="~/Content/js/styleSwitcher.js"></script>
     </body>
-    </body>
+</body>
 </html>
+
+
+
