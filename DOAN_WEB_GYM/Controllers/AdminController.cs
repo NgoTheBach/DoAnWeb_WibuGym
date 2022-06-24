@@ -70,6 +70,29 @@ namespace DOAN_WEB_GYM.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult ThemCLB(FormCollection collection, CLB s)
+        {
+            var E_tenCLB = collection["CLBName"];
+            var E_addressCLB = collection["addressCLB"];
+            var E_urlImage = collection["urlImage"];
+            var E_phoneNumber = collection["phoneNumber"];
+            if (string.IsNullOrEmpty(E_tenCLB))
+            {
+                ViewData["Error"] = "Don't empty!";
+            }
+            else
+            {
+                s.CLBName = E_tenCLB.ToString();
+                s.addressCLB = E_addressCLB.ToString();
+                s.urlImage = E_urlImage.ToString();
+                s.phoneNumber = E_phoneNumber.ToString();
+                db.CLBs.InsertOnSubmit(s);
+                db.SubmitChanges();
+                return RedirectToAction("ListSach");
+            }
+            return this.ThemCLB();
+        }
         public ActionResult DanhSachKhoaTap()
         {
             return View();
