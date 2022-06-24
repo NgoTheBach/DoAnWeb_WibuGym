@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Modals | SHARED ON THEMELOCK.COM</title>
+    <meta name="keywords" content="HTML5 Admin Template" />
+    <meta name="description" content="Porto Admin - Responsive HTML5 Template">
+    <meta name="author" content="okler.net">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+
+    <link rel="stylesheet" href="assets/vendor/pnotify/pnotify.custom.css" />
+
+    <link rel="stylesheet" href="assets/stylesheets/theme.css" />
+
+    <link rel="stylesheet" href="assets/stylesheets/skins/default.css" />
+
+    <link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
+    <link href="@Url.Content("~/Content/Site.css") " rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+            <h4 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase font-weight-bold">Khóa Tập</h4>
+            <div class="d-inline-flex">
+                <p class="m-0 text-white"><a class="text-white" href="@Url.Action("Index", "GYM")">Trang Chủ</a></p>
+                <p class="m-0 text-white px-2">/</p>
+                <p class="m-0 text-white">Khóa Tập</p>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+    <!-- GYM Feature Start -->
+    <h2 class="section-title">CÁC KHÓA TẬP CỦA CHÚNG TÔI </h2>
+    <div class="content_details">
+        <div class="slider-row">
+            <div class="details_content" style="width: 500">
+                <div class="col-4">
+                    <a href="/ChiTietKhoaTap/rpm_coure">
+                        <img src="~/Content/Images/rpm-header.jpg" alt="Image" width="350" height="200">
+                        <div class="item-gym">
+                            <div style="text-align: center">
+                                <a href="/ChiTietKhoaTap/rpm_coure" class="title" style="font-weight: bold">RPM</a>
+                                <div class="icon-list">
+                                    <i class="remixicon-map-pin-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="col-4">
+                    <a href="/ChiTietKhoaTap/yoga_coure">
+                        <img src="~/Content/Images/yoga.jpg" alt="Image" width="350" height="200">
+                        <div class="item-gym">
+                            <div style="text-align: center">
+                                <a href="/ChiTietKhoaTap/yoga_coure" class="title" style="font-weight: bold">YOGA</a>
+                                <div class="icon-list">
+                                    <i class="remixicon-map-pin-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="col-4">
+                    <a href="/ChiTietKhoaTap/kickfit_coure">
+                        <img src="~/Content/Images/boxing.jpg" alt="Image" width="350" height="200">
+                        <div class="item-gym">
+                            <div style="text-align: center">
+                                <a href="/ChiTietKhoaTap/kickfit_coure" class="title" style="font-weight: bold">KICKFIT</a>
+                                <div class="icon-list">
+                                    <i class="remixicon-map-pin-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="col-4">
+                    <a href="/ChiTietKhoaTap/bodypump_coure">
+                        <img src="~/Content/Images/bodypump.jpg">
+                        <div class="item-gym">
+                            <div style="text-align: center">
+                                <a href="/ChiTietKhoaTap/bodypump_coure" class="title" style="font-weight: bold">BODYPUMP</a>
+                                <div class="icon-list">
+                                    <i class="remixicon-map-pin-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="col-4">
+                    <a href="/ChiTietKhoaTap/bodybalance_coure">
+                        <img src="~/Content/Images/body-balance.jpg">
+                        <div class="item-gym">
+                            <div style="text-align: center">
+                                <a href="/ChiTietKhoaTap/bodybalance_coure" class="title" style="font-weight: bold">BODY BALANCE</a>
+                                <div class="icon-list">
+                                    <i class="remixicon-map-pin-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="col-4">
+                    <a href="/ChiTietKhoaTap/bodycompat_coure">
+                        <img src="~/Content/Images/body-combat.jpg">
+                        <div class="item-gym">
+                            <div style="text-align: center">
+                                <a href="/ChiTietKhoaTap/bodycompat_coure" class="title" style="font-weight: bold">BODY COMPAT</a>
+                                <div class="icon-list">
+                                    <i class="remixicon-map-pin-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- GYM Feature End -->
+</body>

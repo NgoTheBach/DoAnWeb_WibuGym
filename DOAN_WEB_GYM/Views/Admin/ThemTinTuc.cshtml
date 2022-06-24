@@ -1,0 +1,204 @@
+﻿@{
+    ViewBag.Title = "ManHinhAdmin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <meta charset="UTF-8">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="~/Scripts/lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <!--@*=========================*@-->
+    <link href="@Url.Content("~/Content/css/style.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/font-awesomemin.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/style.css.map")" rel="stylesheet" type="text/css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+    </script>
+
+
+</head>
+<body>
+    @*Content body start*@
+  
+    <div class="content-body">
+
+        <div class="row page-titles mx-0">
+            <div class="col p-md-0">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+                </ol>
+            </div>
+        </div>
+        <!-- row -->
+
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-validation">
+                                <form class="form-valide" action="#" method="post">
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-username">
+                                            Chủ Đề <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" id="val-username" name="val-username" placeholder="Nhập tên chủ Đề..">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-website">
+                                            Images <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" id="val-website" name="val-website" placeholder="http://example.com">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-skill">
+                                            loại Tiêu Đề <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <select class="form-control" id="val-skill" name="val-skill">
+                                                <option value="">Please select</option>
+                                                <option value="html">Blog</option>
+                                                <option value="css">Sức Khỏe </option>
+                                                <option value="javascript">Tin Tức</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-username"> Ngày bắt đầu  <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input required type="date" name="DateTime" placeholder="Ngày giờ....." />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-username"> Ngày kết thúc <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input required type="date" name="DateTime" placeholder="Ngày giờ....." />
+                                        </div>
+                                    </div> -->
+                                    <!-- <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-email">Email <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" id="val-email" name="val-email" placeholder="Your valid email..">
+                                        </div>
+                                    </div> -->
+                                    <!-- <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-password">Password <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="password" class="form-control" id="val-password" name="val-password" placeholder="Choose a safe one..">
+                                        </div>
+                                    </div> -->
+                                    <!-- <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-confirm-password">Confirm Password <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="password" class="form-control" id="val-confirm-password" name="val-confirm-password" placeholder="..and confirm it!">
+                                        </div>
+                                    </div> -->
+                                    <!-- <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-suggestions">Nội Dung <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <textarea class="form-control" id="val-suggestions" name="val-suggestions" rows="5" placeholder="Nội Dung gì trong này.."></textarea>
+                                        </div>
+                                    </div> -->
+                                    <h4>Nội Dung</h4>
+                                    <form method="post">
+                                        <textarea id="mytextarea"> WiBu</textarea>
+
+                                    </form>
+
+
+                                    <!-- <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-username">Ngày trong tuần <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" id="val-username" name="val-username" placeholder="...">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-currency">Giá Tiền <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" id="val-currency" name="val-currency" placeholder="0$">
+                                        </div>
+                                    </div> -->
+                                    <!-- <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-phoneus">Phone (US) <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" id="val-phoneus" name="val-phoneus" placeholder="212-999-0000">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-digits">Digits <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" id="val-digits" name="val-digits" placeholder="5">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-number">Number <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" id="val-number" name="val-number" placeholder="5.0">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-range">Range [1, 5] <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" id="val-range" name="val-range" placeholder="4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label"><a href="#">Terms &amp; Conditions</a>  <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-8">
+                                            <label class="css-control css-control-primary css-checkbox" for="val-terms">
+                                                <input type="checkbox" class="css-control-input" id="val-terms" name="val-terms" value="1"> <span class="css-control-indicator"></span> I agree to the terms</label>
+                                        </div> -->
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-lg-8 ml-auto">
+                                    <br> <button type="submit" class="btn btn-primary">Submit</button> </br>
+
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #/ container -->
+    </div>
+    <!--**********************************
+        Content body end
+    ***********************************-->
+</body>
+</html>

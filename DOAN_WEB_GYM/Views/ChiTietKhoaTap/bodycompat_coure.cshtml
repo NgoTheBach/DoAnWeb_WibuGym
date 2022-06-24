@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "bodycompat_coure";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Modals | SHARED ON THEMELOCK.COM</title>
+    <meta name="keywords" content="HTML5 Admin Template" />
+    <meta name="description" content="Porto Admin - Responsive HTML5 Template">
+    <meta name="author" content="okler.net">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+
+    <link rel="stylesheet" href="assets/vendor/pnotify/pnotify.custom.css" />
+
+    <link rel="stylesheet" href="assets/stylesheets/theme.css" />
+
+    <link rel="stylesheet" href="assets/stylesheets/skins/default.css" />
+
+    <link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
+    <link href="@Url.Content("~/Content/Site.css") " rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <!-- Page Header Start -->
+    <div class="container-fluid bodycompat-header mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+            <h4 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase font-weight-bold">BODY COMPAT</h4>
+            <div class="d-inline-flex">
+                <p class="m-0 text-white"><a class="text-white" href="@Url.Action("Index", "GYM")">Trang Chủ</a></p>
+                <p class="m-0 text-white px-2">/</p>
+                <p class="m-0 text-white">Khóa Tập</p>
+                <p class="m-0 text-white px-2">/</p>
+                <p class="m-0 text-white">Body Compat</p>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+    <!-- GYM Feature Start -->
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <img class="img-fluid mb-4 mb-lg-0" src="~/Content/Images/body-combat.jpg" alt="Image">
+            </div>
+            <div class="col-lg-6">
+                <h7 class="display-4 font-weight-bold mb-4">BODY COMPAT</h7>
+                <p>
+                    BodyCombat là phương pháp tập luyện cardio, tim mạch kết hợp với các thế võ tự do (Karate, Taekwondo, Boxing, Muay Thai, Capoeira, Kungfu…)
+                    kêt hợp cùng với âm nhạc. Bài tập cường độ cao này giúp cơ thể đốt mở thừa một cách nhanh chóng đồng thời mang lại sự linh hoạt, dẻo dai cho người tập.
+                </p>
+                <a href="@Url.Action("DangNhap", "TaiKhoan")" class="btn btn-lg btn-outline-light mt-3 mt-md-5 py-md-3 px-md-5" style="background-color: #e31c25;">Đăng Ký Ngay</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row introduce_service">
+            <div class="col-lg-3 col-md-6">
+                <img class="img-fluid mb-4 mb-lg-0" src="~/Content/Images/thoiLuong.jpg" alt="Image">
+                <div style="text-align: center">
+                    <div class="title">Thời lượng</div>
+                    <b class="h2">60 phút</b>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <img class="img-fluid mb-4 mb-lg-0" src="~/Content/Images/calories.jpg" alt="Image">
+                <div style="text-align: center">
+                    <div class="title">Calories</div>
+                    <b class="h2">700 - 800</b>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <img class="img-fluid mb-4 mb-lg-0" src="~/Content/Images/skill.jpg" alt="Image">
+                <div style="text-align: center">
+                    <div class="title">Kỹ năng</div>
+                    <b class="h2">Cơ bản - Nâng cao</b>
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <img class="img-fluid mb-4 mb-lg-0" src="~/Content/Images/dexuat.jpg" alt="Image">
+                <div style="text-align: center">
+                    <div class="title">Giảng viên hướng dẫn</div>
+                    <b class="h2">Hồ Văn Thịnh</b>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GYM Feature End -->
+</body>
