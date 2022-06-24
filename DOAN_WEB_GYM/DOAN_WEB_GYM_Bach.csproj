@@ -129,6 +129,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhoaTapController.cs" />
     <Compile Include="Controllers\LienHeController.cs" />
+    <Compile Include="Controllers\ConvertMD5.cs" />
     <Compile Include="Controllers\TaiKhoanController.cs" />
     <Compile Include="Controllers\ThongTinChiTietController.cs" />
     <Compile Include="Controllers\TinTucController.cs" />
@@ -5560,6 +5561,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\MD5\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

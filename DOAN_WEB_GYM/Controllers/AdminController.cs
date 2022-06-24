@@ -5,11 +5,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace DOAN_WEB_GYM.Controllers
 {
     public class AdminController : Controller
     {
-        
         MyDataDataContext db = new MyDataDataContext();
         [HttpGet]
         public ActionResult Login()
@@ -21,26 +21,37 @@ namespace DOAN_WEB_GYM.Controllers
         {
             var tendn = collection["account"];
             var matkhau = collection["password"];
+            var user = db.TaiKhoanQTVs.SingleOrDefault(p => p.Account == tendn);
             if (String.IsNullOrEmpty(tendn))
             {
                 ViewData["Loi1"] = "Phải nhập tên đăng nhập";
+                return this.Login();
             }
             else if (String.IsNullOrEmpty(matkhau))
             {
                 ViewData["Loi2"] = "Phải nhập mật khẩu";
+                return this.Login();
+            }
+            else if (user == null)
+            {
+                ViewData["1"] = "Tài Khoản không tồn tại";
+                return this.Login();
+            }
+            else if (!String.Equals(ConvertMD5.MD5Hash(matkhau), user.Password))
+            {
+                ViewData["2"] = "Sai mật khẩu";
+                return this.Login();
             }
             else
             {
-                TaiKhoanQTV ad = db.TaiKhoanQTVs.SingleOrDefault(n => n.Account == tendn && n.Password == matkhau);
-                if (ad != null)
-                {
-                    Session["Taikhoanadmin"] = ad;
-                    return RedirectToAction("ManHinhAdmin", "Admin");
-                }
-                else
-                    ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";
+                Session["admin"] = user;
+                return RedirectToAction("ManHinhAdmin", "Admin");
             }
-            return RedirectToAction("Login", "Admin");
+        }
+        public ActionResult LogOut()
+        {
+            Session["admin"] = null;
+            return RedirectToAction("LogIn", "Account");
         }
         public ActionResult ManHinhAdmin()
         {
