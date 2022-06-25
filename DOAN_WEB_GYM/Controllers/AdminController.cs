@@ -57,11 +57,42 @@ namespace DOAN_WEB_GYM.Controllers
         {
             return View();
         }
+        // Thêm khóa tập
         public ActionResult ThemKhoaTap()
         {
             return View();
         }
-        
+        [HttpPost]
+        public ActionResult ThemKhoaTap(FormCollection collection, KhoaTap s)
+        {
+            var E_tenKT = collection["tenKT"];
+            var E_descriptionKT = collection["descriptionKT"];
+            var E_startDay = Convert.ToDateTime(collection["startDay"]);
+            var E_dueDay = Convert.ToDateTime(collection["dueDay"]);
+            var E_gia = Convert.ToInt32(collection["gia"]);
+            var E_hinh = collection["hinh"];
+            var E_idCLB = Convert.ToInt32(collection["idCLB"]);
+            if (string.IsNullOrEmpty(E_tenKT))
+            {
+                ViewData["Error"] = "Don't empty!";
+            }
+            else
+            {
+                s.nameCourse = E_tenKT.ToString();
+                s.descriptionKT = E_descriptionKT.ToString();
+                s.startDay = E_startDay;
+                s.dueDay = E_dueDay;
+                s.price = E_gia;
+                s.descriptionKT = E_descriptionKT;
+                s.urlImg = E_hinh.ToString();
+                s.idCLB = E_idCLB;
+                db.KhoaTaps.InsertOnSubmit(s);
+                db.SubmitChanges();
+                return RedirectToAction("ListKhoaTap");
+            }
+            return this.ThemKhoaTap();
+        }
+        // end Thêm khóa tập
         public ActionResult ThemTinTuc()
         {
             return View();

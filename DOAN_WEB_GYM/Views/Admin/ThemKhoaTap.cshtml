@@ -1,0 +1,128 @@
+﻿@model DOAN_WEB_GYM.Models.KhoaTap
+
+@{
+    ViewBag.Title = "ThemKhoaTap";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ThemKhoaTap</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>KhoaTap</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+
+        <div class="col-md-10">
+            Tên khóa tập
+            @Html.EditorFor(model => model.nameCourse, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.nameCourse, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <div class="col-md-10">
+            Ngày bắt đầu
+            <input required type="date" name="DateTime" placeholder="Ngày....." />
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <div class="col-md-10">
+            Ngày kết thúc
+            <input required type="date" name="DateTime" placeholder="Ngày....." />
+        </div>
+    </div>
+    <div class="form-group">
+
+        <div class="col-md-10">
+            DropDownListShift
+            @Html.EditorFor(model => model.idCLB, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.idCLB, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+
+        <div class="col-md-10">
+            Giá
+            @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <div class="col-md-10">
+            Mô tả
+            @Html.EditorFor(model => model.descriptionKT, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.descriptionKT, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <div class="col-md-10">
+            Hình minh họa
+            @Html.EditorFor(model => model.urlImg, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.urlImg, "", new { @class = "text-danger" })
+            <input type="file" name="fileUpload" id="fileUpload" accept="image/*" style="display:none;" />
+            <input type="button" id="btnUpload" value="Chọn" class="btn btn-success" />
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <div class="col-md-10">
+            DropDownListCLB
+            @Html.EditorFor(model => model.idCLB, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.idCLB, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+@section upload
+ {
+    <script>
+        $(function () {
+            $('#btnUpload').click(function () {
+                $('#fileUpload').trigger('click');
+            });
+        });
+
+        $('#fileUpload').change(function () {
+            if (window.FormData !== undefined) {
+                var fileUpload = $('#fileUpload').get(0);
+                var files = fileUpload.files;
+                var formData = new FormData();
+                formData.append('file', files[0]);
+                $.ajax(
+                    {
+                        type: 'POST',
+                        url: '/Admin/ProcessUpload',
+                        contentType: false,
+                        processData: false,
+                        data: formData,
+                        success: function (urlImage) {
+                            $('#pictureUpload').attr('src', urlImage);
+                            $('#urlImg').val(urlImage);
+                        },
+                        error: function (err) {
+                            alert('Error ', err.statusText);
+                        }
+                    });
+            }
+        });
+    </script>
+}
