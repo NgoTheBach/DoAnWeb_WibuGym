@@ -75,7 +75,7 @@ namespace DOAN_WEB_GYM.Controllers
         {
             var E_tenCLB = collection["CLBName"];
             var E_addressCLB = collection["addressCLB"];
-            var E_urlImage = collection["urlImage"];
+            var E_urlImage = collection["urlImg"];
             var E_phoneNumber = collection["phoneNumber"];
             if (string.IsNullOrEmpty(E_tenCLB))
             {
@@ -85,11 +85,11 @@ namespace DOAN_WEB_GYM.Controllers
             {
                 s.CLBName = E_tenCLB.ToString();
                 s.addressCLB = E_addressCLB.ToString();
-                s.urlImage = E_urlImage.ToString();
+                s.urlImg = E_urlImage.ToString();
                 s.phoneNumber = E_phoneNumber.ToString();
                 db.CLBs.InsertOnSubmit(s);
                 db.SubmitChanges();
-                return RedirectToAction("ListSach");
+                return RedirectToAction("ThemCLB","Admin");
             }
             return this.ThemCLB();
         }
@@ -105,6 +105,16 @@ namespace DOAN_WEB_GYM.Controllers
         {
             return View();
         }
-        
+        public string ProcessUpload(HttpPostedFileBase file)
+        {
+            if (file == null)
+            {
+                return "";
+            }
+
+            file.SaveAs(Server.MapPath("~/Content/images_1/" + file.FileName));
+
+            return "/Content/images_1/" + file.FileName;
+        }
     }
 }

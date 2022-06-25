@@ -5550,17 +5550,13 @@
     <Content Include="Scripts\scss\bootstrap\scss\_utilities.scss" />
     <Content Include="Scripts\scss\bootstrap\scss\_variables.scss" />
     <Content Include="Scripts\scss\style.scss" />
-    <Content Include="Views\Admin\ThemKhoaTap.cshtml" />
-    <Content Include="Views\Admin\DanhSachCLB.cshtml" />
-    <Content Include="Views\Admin\DanhSachHocVien.cshtml" />
-    <Content Include="Views\Admin\DanhSachKhoaTap.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
-    <Content Include="Views\Admin\ManHinhAdmin.cshtml" />
     <Content Include="Views\Admin\ThemCLB.cshtml" />
-    <Content Include="Views\Admin\ThemTinTuc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images_1\" />
+    <Folder Include="Content\Store_Images\" />
     <Folder Include="Views\MD5\" />
   </ItemGroup>
   <ItemGroup>

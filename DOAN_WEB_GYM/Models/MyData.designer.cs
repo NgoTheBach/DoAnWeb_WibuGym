@@ -36,12 +36,12 @@ namespace DOAN_WEB_GYM.Models
     partial void InsertDangKyKhoaTap(DangKyKhoaTap instance);
     partial void UpdateDangKyKhoaTap(DangKyKhoaTap instance);
     partial void DeleteDangKyKhoaTap(DangKyKhoaTap instance);
-    partial void InsertKhoaTap(KhoaTap instance);
-    partial void UpdateKhoaTap(KhoaTap instance);
-    partial void DeleteKhoaTap(KhoaTap instance);
     partial void InsertDangKyKhoaTapPT(DangKyKhoaTapPT instance);
     partial void UpdateDangKyKhoaTapPT(DangKyKhoaTapPT instance);
     partial void DeleteDangKyKhoaTapPT(DangKyKhoaTapPT instance);
+    partial void InsertKhoaTap(KhoaTap instance);
+    partial void UpdateKhoaTap(KhoaTap instance);
+    partial void DeleteKhoaTap(KhoaTap instance);
     partial void InsertKhoaTapPT(KhoaTapPT instance);
     partial void UpdateKhoaTapPT(KhoaTapPT instance);
     partial void DeleteKhoaTapPT(KhoaTapPT instance);
@@ -108,14 +108,6 @@ namespace DOAN_WEB_GYM.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<KhoaTap> KhoaTaps
-		{
-			get
-			{
-				return this.GetTable<KhoaTap>();
-			}
-		}
-		
 		public System.Data.Linq.Table<DangKyKhoaTapPT> DangKyKhoaTapPTs
 		{
 			get
@@ -124,11 +116,27 @@ namespace DOAN_WEB_GYM.Models
 			}
 		}
 		
+		public System.Data.Linq.Table<KhoaTap> KhoaTaps
+		{
+			get
+			{
+				return this.GetTable<KhoaTap>();
+			}
+		}
+		
 		public System.Data.Linq.Table<KhoaTapPT> KhoaTapPTs
 		{
 			get
 			{
 				return this.GetTable<KhoaTapPT>();
+			}
+		}
+		
+		public System.Data.Linq.Table<LoaiTinTuc> LoaiTinTucs
+		{
+			get
+			{
+				return this.GetTable<LoaiTinTuc>();
 			}
 		}
 		
@@ -193,7 +201,7 @@ namespace DOAN_WEB_GYM.Models
 		
 		private string _addressCLB;
 		
-		private string _urlImage;
+		private string _urlImg;
 		
 		private string _phoneNumber;
 		
@@ -209,8 +217,8 @@ namespace DOAN_WEB_GYM.Models
     partial void OnCLBNameChanged();
     partial void OnaddressCLBChanging(string value);
     partial void OnaddressCLBChanged();
-    partial void OnurlImageChanging(string value);
-    partial void OnurlImageChanged();
+    partial void OnurlImgChanging(string value);
+    partial void OnurlImgChanged();
     partial void OnphoneNumberChanging(string value);
     partial void OnphoneNumberChanged();
     #endregion
@@ -281,22 +289,22 @@ namespace DOAN_WEB_GYM.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlImage", DbType="VarChar(128)")]
-		public string urlImage
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlImg", DbType="VarChar(128)")]
+		public string urlImg
 		{
 			get
 			{
-				return this._urlImage;
+				return this._urlImg;
 			}
 			set
 			{
-				if ((this._urlImage != value))
+				if ((this._urlImg != value))
 				{
-					this.OnurlImageChanging(value);
+					this.OnurlImgChanging(value);
 					this.SendPropertyChanging();
-					this._urlImage = value;
-					this.SendPropertyChanged("urlImage");
-					this.OnurlImageChanged();
+					this._urlImg = value;
+					this.SendPropertyChanged("urlImg");
+					this.OnurlImgChanged();
 				}
 			}
 		}
@@ -535,6 +543,116 @@ namespace DOAN_WEB_GYM.Models
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DangKyKhoaTapPT")]
+	public partial class DangKyKhoaTapPT : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idGuest;
+		
+		private int _idCourse;
+		
+		private int _idPT;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidGuestChanging(int value);
+    partial void OnidGuestChanged();
+    partial void OnidCourseChanging(int value);
+    partial void OnidCourseChanged();
+    partial void OnidPTChanging(int value);
+    partial void OnidPTChanged();
+    #endregion
+		
+		public DangKyKhoaTapPT()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGuest", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int idGuest
+		{
+			get
+			{
+				return this._idGuest;
+			}
+			set
+			{
+				if ((this._idGuest != value))
+				{
+					this.OnidGuestChanging(value);
+					this.SendPropertyChanging();
+					this._idGuest = value;
+					this.SendPropertyChanged("idGuest");
+					this.OnidGuestChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCourse", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int idCourse
+		{
+			get
+			{
+				return this._idCourse;
+			}
+			set
+			{
+				if ((this._idCourse != value))
+				{
+					this.OnidCourseChanging(value);
+					this.SendPropertyChanging();
+					this._idCourse = value;
+					this.SendPropertyChanged("idCourse");
+					this.OnidCourseChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idPT", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int idPT
+		{
+			get
+			{
+				return this._idPT;
+			}
+			set
+			{
+				if ((this._idPT != value))
+				{
+					this.OnidPTChanging(value);
+					this.SendPropertyChanging();
+					this._idPT = value;
+					this.SendPropertyChanged("idPT");
+					this.OnidPTChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.KhoaTap")]
 	public partial class KhoaTap : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -553,7 +671,7 @@ namespace DOAN_WEB_GYM.Models
 		
 		private string _descriptionKT;
 		
-		private string _urlImage;
+		private string _urlImg;
 		
 		private System.Nullable<int> _idCLB;
 		
@@ -579,8 +697,8 @@ namespace DOAN_WEB_GYM.Models
     partial void OnpriceChanged();
     partial void OndescriptionKTChanging(string value);
     partial void OndescriptionKTChanged();
-    partial void OnurlImageChanging(string value);
-    partial void OnurlImageChanged();
+    partial void OnurlImgChanging(string value);
+    partial void OnurlImgChanged();
     partial void OnidCLBChanging(System.Nullable<int> value);
     partial void OnidCLBChanged();
     #endregion
@@ -713,22 +831,22 @@ namespace DOAN_WEB_GYM.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlImage", DbType="VarChar(128)")]
-		public string urlImage
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlImg", DbType="VarChar(128)")]
+		public string urlImg
 		{
 			get
 			{
-				return this._urlImage;
+				return this._urlImg;
 			}
 			set
 			{
-				if ((this._urlImage != value))
+				if ((this._urlImg != value))
 				{
-					this.OnurlImageChanging(value);
+					this.OnurlImgChanging(value);
 					this.SendPropertyChanging();
-					this._urlImage = value;
-					this.SendPropertyChanged("urlImage");
-					this.OnurlImageChanged();
+					this._urlImg = value;
+					this.SendPropertyChanged("urlImg");
+					this.OnurlImgChanged();
 				}
 			}
 		}
@@ -859,116 +977,6 @@ namespace DOAN_WEB_GYM.Models
 		{
 			this.SendPropertyChanging();
 			entity.KhoaTap = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DangKyKhoaTapPT")]
-	public partial class DangKyKhoaTapPT : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _idGuest;
-		
-		private int _idCourse;
-		
-		private int _idPT;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidGuestChanging(int value);
-    partial void OnidGuestChanged();
-    partial void OnidCourseChanging(int value);
-    partial void OnidCourseChanged();
-    partial void OnidPTChanging(int value);
-    partial void OnidPTChanged();
-    #endregion
-		
-		public DangKyKhoaTapPT()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGuest", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int idGuest
-		{
-			get
-			{
-				return this._idGuest;
-			}
-			set
-			{
-				if ((this._idGuest != value))
-				{
-					this.OnidGuestChanging(value);
-					this.SendPropertyChanging();
-					this._idGuest = value;
-					this.SendPropertyChanged("idGuest");
-					this.OnidGuestChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCourse", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int idCourse
-		{
-			get
-			{
-				return this._idCourse;
-			}
-			set
-			{
-				if ((this._idCourse != value))
-				{
-					this.OnidCourseChanging(value);
-					this.SendPropertyChanging();
-					this._idCourse = value;
-					this.SendPropertyChanged("idCourse");
-					this.OnidCourseChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idPT", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int idPT
-		{
-			get
-			{
-				return this._idPT;
-			}
-			set
-			{
-				if ((this._idPT != value))
-				{
-					this.OnidPTChanging(value);
-					this.SendPropertyChanging();
-					this._idPT = value;
-					this.SendPropertyChanged("idPT");
-					this.OnidPTChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 	
@@ -1222,6 +1230,51 @@ namespace DOAN_WEB_GYM.Models
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LoaiTinTuc")]
+	public partial class LoaiTinTuc
+	{
+		
+		private int _idNewsType;
+		
+		private string _NewsTypeName;
+		
+		public LoaiTinTuc()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idNewsType", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int idNewsType
+		{
+			get
+			{
+				return this._idNewsType;
+			}
+			set
+			{
+				if ((this._idNewsType != value))
+				{
+					this._idNewsType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NewsTypeName", DbType="NVarChar(50)")]
+		public string NewsTypeName
+		{
+			get
+			{
+				return this._NewsTypeName;
+			}
+			set
+			{
+				if ((this._NewsTypeName != value))
+				{
+					this._NewsTypeName = value;
+				}
 			}
 		}
 	}
@@ -1840,9 +1893,9 @@ namespace DOAN_WEB_GYM.Models
 		
 		private int _IDTaiKhoan;
 		
-		private string _Password;
-		
 		private string _Account;
+		
+		private string _Password;
 		
 		public TaiKhoanQTV()
 		{
@@ -1864,22 +1917,6 @@ namespace DOAN_WEB_GYM.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this._Password = value;
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Account", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 		public string Account
 		{
@@ -1892,6 +1929,22 @@ namespace DOAN_WEB_GYM.Models
 				if ((this._Account != value))
 				{
 					this._Account = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(128) NOT NULL", CanBeNull=false)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this._Password = value;
 				}
 			}
 		}
@@ -2049,7 +2102,9 @@ namespace DOAN_WEB_GYM.Models
 		
 		private string _content;
 		
-		private string _urlImage;
+		private string _urlImg;
+		
+		private System.Nullable<int> _newsTypeId;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2063,8 +2118,10 @@ namespace DOAN_WEB_GYM.Models
     partial void OndescriptionLTTChanged();
     partial void OncontentChanging(string value);
     partial void OncontentChanged();
-    partial void OnurlImageChanging(string value);
-    partial void OnurlImageChanged();
+    partial void OnurlImgChanging(string value);
+    partial void OnurlImgChanged();
+    partial void OnnewsTypeIdChanging(System.Nullable<int> value);
+    partial void OnnewsTypeIdChanged();
     #endregion
 		
 		public TinTuc()
@@ -2152,22 +2209,42 @@ namespace DOAN_WEB_GYM.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlImage", DbType="VarChar(128)")]
-		public string urlImage
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlImg", DbType="VarChar(128)")]
+		public string urlImg
 		{
 			get
 			{
-				return this._urlImage;
+				return this._urlImg;
 			}
 			set
 			{
-				if ((this._urlImage != value))
+				if ((this._urlImg != value))
 				{
-					this.OnurlImageChanging(value);
+					this.OnurlImgChanging(value);
 					this.SendPropertyChanging();
-					this._urlImage = value;
-					this.SendPropertyChanged("urlImage");
-					this.OnurlImageChanged();
+					this._urlImg = value;
+					this.SendPropertyChanged("urlImg");
+					this.OnurlImgChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_newsTypeId", DbType="Int")]
+		public System.Nullable<int> newsTypeId
+		{
+			get
+			{
+				return this._newsTypeId;
+			}
+			set
+			{
+				if ((this._newsTypeId != value))
+				{
+					this.OnnewsTypeIdChanging(value);
+					this.SendPropertyChanging();
+					this._newsTypeId = value;
+					this.SendPropertyChanged("newsTypeId");
+					this.OnnewsTypeIdChanged();
 				}
 			}
 		}

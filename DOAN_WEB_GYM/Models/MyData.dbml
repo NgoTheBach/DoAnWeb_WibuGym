@@ -5,7 +5,7 @@
       <Column Name="idCLB" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="CLBName" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
       <Column Name="addressCLB" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
-      <Column Name="urlImage" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="urlImg" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
       <Column Name="phoneNumber" Type="System.String" DbType="NChar(11)" CanBeNull="true" />
       <Association Name="CLB_KhoaTap" Member="KhoaTaps" ThisKey="idCLB" OtherKey="idCLB" Type="KhoaTap" />
     </Type>
@@ -18,6 +18,13 @@
       <Association Name="TaiKhoanKH_DangKyKhoaTap" Member="TaiKhoanKH" ThisKey="idGuest" OtherKey="idGuest" Type="TaiKhoanKH" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.DangKyKhoaTapPT" Member="DangKyKhoaTapPTs">
+    <Type Name="DangKyKhoaTapPT">
+      <Column Name="idGuest" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idCourse" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idPT" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.KhoaTap" Member="KhoaTaps">
     <Type Name="KhoaTap">
       <Column Name="idCourse" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -26,18 +33,11 @@
       <Column Name="dueDay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="price" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="descriptionKT" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="urlImage" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="urlImg" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
       <Column Name="idCLB" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="KhoaTap_DangKyKhoaTap" Member="DangKyKhoaTaps" ThisKey="idCourse" OtherKey="idCourse" Type="DangKyKhoaTap" />
       <Association Name="KhoaTap_NgayTrongTuan" Member="NgayTrongTuans" ThisKey="idCourse" OtherKey="idCourse" Type="NgayTrongTuan" />
       <Association Name="CLB_KhoaTap" Member="CLB" ThisKey="idCLB" OtherKey="idCLB" Type="CLB" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.DangKyKhoaTapPT" Member="DangKyKhoaTapPTs">
-    <Type Name="DangKyKhoaTapPT">
-      <Column Name="idGuest" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="idCourse" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="idPT" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.KhoaTapPT" Member="KhoaTapPTs">
@@ -51,6 +51,12 @@
       <Column Name="urlImage" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
       <Column Name="idCLB" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="idPT" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LoaiTinTuc" Member="LoaiTinTucs">
+    <Type Name="LoaiTinTuc">
+      <Column Name="idNewsType" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NewsTypeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.NgayTrongTuan" Member="NgayTrongTuans">
@@ -87,8 +93,8 @@
   <Table Name="dbo.TaiKhoanQTV" Member="TaiKhoanQTVs">
     <Type Name="TaiKhoanQTV">
       <Column Name="IDTaiKhoan" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Account" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(128) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.thoiGianKhoaTap" Member="thoiGianKhoaTaps">
@@ -105,7 +111,8 @@
       <Column Name="Title" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="descriptionLTT" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
       <Column Name="content" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="urlImage" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="urlImg" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="newsTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

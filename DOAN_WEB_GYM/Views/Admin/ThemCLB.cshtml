@@ -1,96 +1,61 @@
-﻿@{ ViewBag.Title = "ThemCLB";
-                Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; }
+﻿@model DOAN_WEB_GYM.Models.CLB
 
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-    <meta charset="UTF-8">
+@{
+    ViewBag.Title = "ThemCLB";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
 
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+<h2>ThemCLB</h2>
 
-    <!-- Flaticon Font -->
-    <link href="~/Scripts/lib/flaticon/font/flaticon.css" rel="stylesheet">
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
-    <!--@*=========================*@-->
-    <link href="@Url.Content("~/Content/css/style.css")" rel="stylesheet" type="text/css" />
-    <link href="@Url.Content("~/Content/font-awesomemin.css")" rel="stylesheet" type="text/css" />
-    <link href="@Url.Content("~/Content/css/style.css.map")" rel="stylesheet" type="text/css" />
-
-
-</head>
-<body>
-    <!--**********************************
-           Content body start
-       ***********************************-->
-    <div class="content-body">
-
-        <div class="row page-titles mx-0">
-            <div class="col p-md-0">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
-                </ol>
+    <div class="form-horizontal">
+        <h4>CLB</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.CLBName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CLBName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CLBName, "", new { @class = "text-danger" })
             </div>
         </div>
-        <!-- row -->
 
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="form-validation">
-                                <form class="form-valide" action="#" method="post">
-                                    <div class="form-group row">
-                                        <label class="col-lg-4 col-form-label" for="val-username">
-                                            Tên Câu Lạc Bộ <span class="text-danger">*</span>
-                                        </label>
-                                        <div class="col-lg-6">
-                                            <input type="text" class="form-control" id="val-username" name="val-username" placeholder="Nhập tên CLB..">
-                                        </div>
-                                    </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.addressCLB, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.addressCLB, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.addressCLB, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.urlImg, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.urlImg, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.urlImg, "", new { @class = "text-danger" })
+                <input type="file" name="fileUpload" id="fileUpload" accept="image/*" style="display:none;" />
+                <input type="button" id="btnUpload" value="Chọn" class="btn btn-success" />
+            </div>
+        </div>
 
-                                    <div class="form-group row">
-                                        <label class="col-lg-4 col-form-label" for="val-suggestions">
-                                            Địa Chỉ <span class="text-danger">*</span>
-                                        </label>
-                                        <div class="col-lg-6">
-                                            <textarea class="form-control" id="val-suggestions" name="val-suggestions" rows="5" placeholder="Địa chỉ ở đâu nói ngayy..."></textarea>
-                                        </div>
-                                    </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.phoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.phoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.phoneNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-
-                                    <div class="form-group row">
-                                        <label class="col-lg-4 col-form-label" for="val-website">
-                                            Images <span class="text-danger">*</span>
-                                        </label>
-                                        <div class="col-lg-6">
-                                            <input type="text" class="form-control" id="val-website" name="val-website" placeholder="http://example.com">
-                                        </div>
-                                    </div>
-
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-lg-8 ml-auto">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
-    <!-- #/ container -->
-    </div>
-    <!--**********************************
-        Content body end
-    ***********************************-->
-</body>
-</html>
+}
 
 @section upload
  {
@@ -110,13 +75,13 @@
                 $.ajax(
                     {
                         type: 'POST',
-                        url: '/Sach/ProcessUpload',
+                        url: '/CLB/ProcessUpload',
                         contentType: false,
                         processData: false,
                         data: formData,
                         success: function (urlImage) {
                             $('#pictureUpload').attr('src', urlImage);
-                            $('#hinh').val(urlImage);
+                            $('#urlImg').val(urlImage);
                         },
                         error: function (err) {
                             alert('Error ', err.statusText);
