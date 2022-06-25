@@ -93,6 +93,60 @@ namespace DOAN_WEB_GYM.Controllers
             }
             return this.ThemCLB();
         }
+        // EDit CLB
+        public ActionResult SuaCLB(int id)
+        {
+            var E_sach = db.CLBs.First(m => m.idCLB == id);
+            return View(E_sach);
+        }
+        [HttpPost]
+        public ActionResult SuaCLB(int id, FormCollection collection)
+        {
+            var E_clb = db.CLBs.First(m => m.idCLB == id);
+            var E_tenCLB = collection["CLBName"];
+            var E_addressCLB = collection["addressCLB"];
+            var E_urlImage = collection["urlImg"];
+            var E_phoneNumber = collection["phoneNumber"];
+            E_clb.idCLB = id;
+            if (string.IsNullOrEmpty(E_tenCLB))
+            {
+                ViewData["Error"] = "Don't empty!";
+            }
+            else
+            {
+                E_clb.CLBName = E_tenCLB;
+                E_clb.addressCLB = E_addressCLB;
+                E_clb.urlImg = E_urlImage;
+                E_clb.phoneNumber = E_phoneNumber;
+                UpdateModel(E_clb);
+                db.SubmitChanges();
+                return RedirectToAction("ListCLB");
+            }
+            return this.SuaCLB(id);
+        }
+        //end Edit CLB
+        // delete clb
+        public ActionResult XoaCLB(int id)
+        {
+            var D_clb = db.CLBs.First(m => m.idCLB == id);
+            return View(D_clb);
+        }
+        [HttpPost]
+        public ActionResult XoaCLB(int id, FormCollection collection)
+        {
+            var D_clb = db.CLBs.Where(m => m.idCLB == id).First();
+            db.CLBs.DeleteOnSubmit(D_clb);
+            db.SubmitChanges();
+            return RedirectToAction("ListCLB");
+        }
+        //end delete clb
+        // list CLB
+        public ActionResult ListCLB()
+        {
+            var all_clb = from ss in db.CLBs select ss;
+            return View(all_clb);
+        }
+        // end List CLB
         public ActionResult DanhSachKhoaTap()
         {
             return View();

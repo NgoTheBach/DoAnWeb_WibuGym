@@ -1,0 +1,52 @@
+﻿@model IEnumerable<DOAN_WEB_GYM.Models.CLB>
+
+@{
+    ViewBag.Title = "ListCLB";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ListCLB</h2>
+
+<p>
+    @Html.ActionLink("Create New", "ThemCLB")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CLBName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.addressCLB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.urlImg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phoneNumber)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLBName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.addressCLB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.urlImg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phoneNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "SuaCLB", new { id=item.idCLB }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idCLB }) |
+            @Html.ActionLink("Delete", "XoaCLB", new { id=item.idCLB })
+        </td>
+    </tr>
+}
+
+</table>
