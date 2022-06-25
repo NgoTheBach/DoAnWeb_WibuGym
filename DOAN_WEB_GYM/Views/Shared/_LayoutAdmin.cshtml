@@ -15,6 +15,7 @@
                     <li>@Html.ActionLink("Thêm CLB", "ThemCLB", "Admin")</li>
                     <li>@Html.ActionLink("Thêm Khóa Tập", "ThemKhoaTap", "Admin")</li>
                     <li>@Html.ActionLink("Thêm Tin Tức", "ThemTinTuc", "Admin")</li>
+                    <li>@Html.ActionLink("Danh Sách CLB", "ListCLB", "Admin")</li>
                 </ul>
             </div>
         </div>
@@ -29,8 +30,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
     @RenderSection("upload", required: false)
-
+    @RenderSection("scripts", required: false)
 </body>
 </html>

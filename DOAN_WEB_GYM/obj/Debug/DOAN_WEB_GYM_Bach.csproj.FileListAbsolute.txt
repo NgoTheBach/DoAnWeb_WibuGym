@@ -151,8 +151,8 @@ C:\Github\DoAnWeb_WibuGym\DOAN_WEB_GYM\bin\System.Web.WebPages.Razor.xml
 C:\Github\DoAnWeb_WibuGym\DOAN_WEB_GYM\bin\Newtonsoft.Json.xml
 C:\Github\DoAnWeb_WibuGym\DOAN_WEB_GYM\bin\Antlr3.Runtime.pdb
 C:\Github\DoAnWeb_WibuGym\DOAN_WEB_GYM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Github\DoAnWeb_WibuGym\DOAN_WEB_GYM\obj\Debug\DOAN_WEB_GYM_Bach.csproj.AssemblyReference.cache
 C:\Github\DoAnWeb_WibuGym\DOAN_WEB_GYM\obj\Debug\DOAN_WEB_GYM_Bach.csproj.CoreCompileInputs.cache
 C:\Github\DoAnWeb_WibuGym\DOAN_WEB_GYM\obj\Debug\DOAN_WEB_GYM_Bach.csproj.CopyComplete
 C:\Github\DoAnWeb_WibuGym\DOAN_WEB_GYM\obj\Debug\DOAN_WEB_GYM.dll
 C:\Github\DoAnWeb_WibuGym\DOAN_WEB_GYM\obj\Debug\DOAN_WEB_GYM.pdb
+C:\Github\DoAnWeb_WibuGym\DOAN_WEB_GYM\obj\Debug\DOAN_WEB_GYM_Bach.csproj.AssemblyReference.cache

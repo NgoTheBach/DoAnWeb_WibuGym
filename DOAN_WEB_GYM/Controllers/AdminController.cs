@@ -155,10 +155,6 @@ namespace DOAN_WEB_GYM.Controllers
         {
             return View();
         }
-        public ActionResult DanhSachCLB()
-        {
-            return View();
-        }
         public string ProcessUpload(HttpPostedFileBase file)
         {
             if (file == null)
@@ -166,9 +162,10 @@ namespace DOAN_WEB_GYM.Controllers
                 return "";
             }
 
-            file.SaveAs(Server.MapPath("~/Content/images_1/" + file.FileName));
+            file.SaveAs(Server.MapPath("~/Content/images/" + file.FileName));
 
-            return "/Content/images_1/" + file.FileName;
+            return "/Content/images/" + file.FileName;
         }
+
     }
 }
