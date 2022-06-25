@@ -36,37 +36,27 @@
       <Column Name="urlImg" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
       <Column Name="idCLB" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="KhoaTap_DangKyKhoaTap" Member="DangKyKhoaTaps" ThisKey="idCourse" OtherKey="idCourse" Type="DangKyKhoaTap" />
-      <Association Name="KhoaTap_NgayTrongTuan" Member="NgayTrongTuans" ThisKey="idCourse" OtherKey="idCourse" Type="NgayTrongTuan" />
+      <Association Name="KhoaTap_Lich" Member="Liches" ThisKey="idCourse" OtherKey="idCourse" Type="Lich" />
       <Association Name="CLB_KhoaTap" Member="CLB" ThisKey="idCLB" OtherKey="idCLB" Type="CLB" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.KhoaTapPT" Member="KhoaTapPTs">
-    <Type Name="KhoaTapPT">
-      <Column Name="idCoursePT" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="nameCourse" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
-      <Column Name="startDay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="dueDay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="price" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="descriptionKT" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="urlImage" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
-      <Column Name="idCLB" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idPT" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.LoaiTinTuc" Member="LoaiTinTucs">
-    <Type Name="LoaiTinTuc">
-      <Column Name="idNewsType" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="NewsTypeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+  <Table Name="dbo.Lich" Member="Liches">
+    <Type Name="Lich">
+      <Column Name="idCourse" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idDaysInWeek" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idTimeStart" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idTimeEnd" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="KhoaTap_Lich" Member="KhoaTap" ThisKey="idCourse" OtherKey="idCourse" Type="KhoaTap" IsForeignKey="true" />
+      <Association Name="NgayTrongTuan_Lich" Member="NgayTrongTuan" ThisKey="idDaysInWeek" OtherKey="idDaysInWeek" Type="NgayTrongTuan" IsForeignKey="true" />
+      <Association Name="thoiGianBatDau_Lich" Member="thoiGianBatDau" ThisKey="idTimeStart" OtherKey="idTimeStart" Type="thoiGianBatDau" IsForeignKey="true" />
+      <Association Name="thoiGianKetThuc_Lich" Member="thoiGianKetThuc" ThisKey="idTimeEnd" OtherKey="idTimeEnd" Type="thoiGianKetThuc" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.NgayTrongTuan" Member="NgayTrongTuans">
     <Type Name="NgayTrongTuan">
       <Column Name="idDaysInWeek" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idCourse" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="daysInWeek" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="idTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="KhoaTap_NgayTrongTuan" Member="KhoaTap" ThisKey="idCourse" OtherKey="idCourse" Type="KhoaTap" IsForeignKey="true" />
-      <Association Name="thoiGianKhoaTap_NgayTrongTuan" Member="thoiGianKhoaTap" ThisKey="idTime" OtherKey="idTime" Type="thoiGianKhoaTap" IsForeignKey="true" />
+      <Association Name="NgayTrongTuan_Lich" Member="Liches" ThisKey="idDaysInWeek" OtherKey="idDaysInWeek" Type="Lich" />
     </Type>
   </Table>
   <Table Name="dbo.PT" Member="PTs">
@@ -97,12 +87,25 @@
       <Column Name="Password" Type="System.String" DbType="VarChar(128) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.thoiGianKhoaTap" Member="thoiGianKhoaTaps">
-    <Type Name="thoiGianKhoaTap">
-      <Column Name="idTime" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+  <Table Name="dbo.thoiGianBatDau" Member="thoiGianBatDaus">
+    <Type Name="thoiGianBatDau">
+      <Column Name="idTimeStart" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="timeStart" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Association Name="thoiGianBatDau_Lich" Member="Liches" ThisKey="idTimeStart" OtherKey="idTimeStart" Type="Lich" />
+    </Type>
+  </Table>
+  <Table Name="dbo.thoiGianKetThuc" Member="thoiGianKetThucs">
+    <Type Name="thoiGianKetThuc">
+      <Column Name="idTimeEnd" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="timeEnd" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
-      <Association Name="thoiGianKhoaTap_NgayTrongTuan" Member="NgayTrongTuans" ThisKey="idTime" OtherKey="idTime" Type="NgayTrongTuan" />
+      <Association Name="thoiGianKetThuc_Lich" Member="Liches" ThisKey="idTimeEnd" OtherKey="idTimeEnd" Type="Lich" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TenLoaiTinTuc" Member="TenLoaiTinTucs">
+    <Type Name="TenLoaiTinTuc">
+      <Column Name="idNewsType" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="newsTypeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="TenLoaiTinTuc_TinTuc" Member="TinTucs" ThisKey="idNewsType" OtherKey="newsTypeId" Type="TinTuc" />
     </Type>
   </Table>
   <Table Name="dbo.TinTuc" Member="TinTucs">
@@ -113,6 +116,20 @@
       <Column Name="content" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
       <Column Name="urlImg" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
       <Column Name="newsTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TenLoaiTinTuc_TinTuc" Member="TenLoaiTinTuc" ThisKey="newsTypeId" OtherKey="idNewsType" Type="TenLoaiTinTuc" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KhoaTapPT" Member="KhoaTapPTs">
+    <Type Name="KhoaTapPT">
+      <Column Name="idCoursePT" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nameCourse" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="startDay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="dueDay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="price" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="descriptionKT" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="urlImage" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="idCLB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idPT" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

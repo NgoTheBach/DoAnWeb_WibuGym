@@ -42,9 +42,9 @@ namespace DOAN_WEB_GYM.Models
     partial void InsertKhoaTap(KhoaTap instance);
     partial void UpdateKhoaTap(KhoaTap instance);
     partial void DeleteKhoaTap(KhoaTap instance);
-    partial void InsertKhoaTapPT(KhoaTapPT instance);
-    partial void UpdateKhoaTapPT(KhoaTapPT instance);
-    partial void DeleteKhoaTapPT(KhoaTapPT instance);
+    partial void InsertLich(Lich instance);
+    partial void UpdateLich(Lich instance);
+    partial void DeleteLich(Lich instance);
     partial void InsertNgayTrongTuan(NgayTrongTuan instance);
     partial void UpdateNgayTrongTuan(NgayTrongTuan instance);
     partial void DeleteNgayTrongTuan(NgayTrongTuan instance);
@@ -54,12 +54,21 @@ namespace DOAN_WEB_GYM.Models
     partial void InsertTaiKhoanKH(TaiKhoanKH instance);
     partial void UpdateTaiKhoanKH(TaiKhoanKH instance);
     partial void DeleteTaiKhoanKH(TaiKhoanKH instance);
-    partial void InsertthoiGianKhoaTap(thoiGianKhoaTap instance);
-    partial void UpdatethoiGianKhoaTap(thoiGianKhoaTap instance);
-    partial void DeletethoiGianKhoaTap(thoiGianKhoaTap instance);
+    partial void InsertthoiGianBatDau(thoiGianBatDau instance);
+    partial void UpdatethoiGianBatDau(thoiGianBatDau instance);
+    partial void DeletethoiGianBatDau(thoiGianBatDau instance);
+    partial void InsertthoiGianKetThuc(thoiGianKetThuc instance);
+    partial void UpdatethoiGianKetThuc(thoiGianKetThuc instance);
+    partial void DeletethoiGianKetThuc(thoiGianKetThuc instance);
+    partial void InsertTenLoaiTinTuc(TenLoaiTinTuc instance);
+    partial void UpdateTenLoaiTinTuc(TenLoaiTinTuc instance);
+    partial void DeleteTenLoaiTinTuc(TenLoaiTinTuc instance);
     partial void InsertTinTuc(TinTuc instance);
     partial void UpdateTinTuc(TinTuc instance);
     partial void DeleteTinTuc(TinTuc instance);
+    partial void InsertKhoaTapPT(KhoaTapPT instance);
+    partial void UpdateKhoaTapPT(KhoaTapPT instance);
+    partial void DeleteKhoaTapPT(KhoaTapPT instance);
     #endregion
 		
 		public MyDataDataContext() : 
@@ -124,19 +133,11 @@ namespace DOAN_WEB_GYM.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<KhoaTapPT> KhoaTapPTs
+		public System.Data.Linq.Table<Lich> Liches
 		{
 			get
 			{
-				return this.GetTable<KhoaTapPT>();
-			}
-		}
-		
-		public System.Data.Linq.Table<LoaiTinTuc> LoaiTinTucs
-		{
-			get
-			{
-				return this.GetTable<LoaiTinTuc>();
+				return this.GetTable<Lich>();
 			}
 		}
 		
@@ -172,11 +173,27 @@ namespace DOAN_WEB_GYM.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<thoiGianKhoaTap> thoiGianKhoaTaps
+		public System.Data.Linq.Table<thoiGianBatDau> thoiGianBatDaus
 		{
 			get
 			{
-				return this.GetTable<thoiGianKhoaTap>();
+				return this.GetTable<thoiGianBatDau>();
+			}
+		}
+		
+		public System.Data.Linq.Table<thoiGianKetThuc> thoiGianKetThucs
+		{
+			get
+			{
+				return this.GetTable<thoiGianKetThuc>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TenLoaiTinTuc> TenLoaiTinTucs
+		{
+			get
+			{
+				return this.GetTable<TenLoaiTinTuc>();
 			}
 		}
 		
@@ -185,6 +202,14 @@ namespace DOAN_WEB_GYM.Models
 			get
 			{
 				return this.GetTable<TinTuc>();
+			}
+		}
+		
+		public System.Data.Linq.Table<KhoaTapPT> KhoaTapPTs
+		{
+			get
+			{
+				return this.GetTable<KhoaTapPT>();
 			}
 		}
 	}
@@ -677,7 +702,7 @@ namespace DOAN_WEB_GYM.Models
 		
 		private EntitySet<DangKyKhoaTap> _DangKyKhoaTaps;
 		
-		private EntitySet<NgayTrongTuan> _NgayTrongTuans;
+		private EntitySet<Lich> _Liches;
 		
 		private EntityRef<CLB> _CLB;
 		
@@ -706,7 +731,7 @@ namespace DOAN_WEB_GYM.Models
 		public KhoaTap()
 		{
 			this._DangKyKhoaTaps = new EntitySet<DangKyKhoaTap>(new Action<DangKyKhoaTap>(this.attach_DangKyKhoaTaps), new Action<DangKyKhoaTap>(this.detach_DangKyKhoaTaps));
-			this._NgayTrongTuans = new EntitySet<NgayTrongTuan>(new Action<NgayTrongTuan>(this.attach_NgayTrongTuans), new Action<NgayTrongTuan>(this.detach_NgayTrongTuans));
+			this._Liches = new EntitySet<Lich>(new Action<Lich>(this.attach_Liches), new Action<Lich>(this.detach_Liches));
 			this._CLB = default(EntityRef<CLB>);
 			OnCreated();
 		}
@@ -888,16 +913,16 @@ namespace DOAN_WEB_GYM.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KhoaTap_NgayTrongTuan", Storage="_NgayTrongTuans", ThisKey="idCourse", OtherKey="idCourse")]
-		public EntitySet<NgayTrongTuan> NgayTrongTuans
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KhoaTap_Lich", Storage="_Liches", ThisKey="idCourse", OtherKey="idCourse")]
+		public EntitySet<Lich> Liches
 		{
 			get
 			{
-				return this._NgayTrongTuans;
+				return this._Liches;
 			}
 			set
 			{
-				this._NgayTrongTuans.Assign(value);
+				this._Liches.Assign(value);
 			}
 		}
 		
@@ -967,248 +992,292 @@ namespace DOAN_WEB_GYM.Models
 			entity.KhoaTap = null;
 		}
 		
-		private void attach_NgayTrongTuans(NgayTrongTuan entity)
+		private void attach_Liches(Lich entity)
 		{
 			this.SendPropertyChanging();
 			entity.KhoaTap = this;
 		}
 		
-		private void detach_NgayTrongTuans(NgayTrongTuan entity)
+		private void detach_Liches(Lich entity)
 		{
 			this.SendPropertyChanging();
 			entity.KhoaTap = null;
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.KhoaTapPT")]
-	public partial class KhoaTapPT : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Lich")]
+	public partial class Lich : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _idCoursePT;
+		private int _idCourse;
 		
-		private string _nameCourse;
+		private int _idDaysInWeek;
 		
-		private System.Nullable<System.DateTime> _startDay;
+		private int _idTimeStart;
 		
-		private System.Nullable<System.DateTime> _dueDay;
+		private int _idTimeEnd;
 		
-		private System.Nullable<int> _price;
+		private EntityRef<KhoaTap> _KhoaTap;
 		
-		private string _descriptionKT;
+		private EntityRef<NgayTrongTuan> _NgayTrongTuan;
 		
-		private string _urlImage;
+		private EntityRef<thoiGianBatDau> _thoiGianBatDau;
 		
-		private System.Nullable<int> _idCLB;
-		
-		private string _idPT;
+		private EntityRef<thoiGianKetThuc> _thoiGianKetThuc;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnidCoursePTChanging(int value);
-    partial void OnidCoursePTChanged();
-    partial void OnnameCourseChanging(string value);
-    partial void OnnameCourseChanged();
-    partial void OnstartDayChanging(System.Nullable<System.DateTime> value);
-    partial void OnstartDayChanged();
-    partial void OndueDayChanging(System.Nullable<System.DateTime> value);
-    partial void OndueDayChanged();
-    partial void OnpriceChanging(System.Nullable<int> value);
-    partial void OnpriceChanged();
-    partial void OndescriptionKTChanging(string value);
-    partial void OndescriptionKTChanged();
-    partial void OnurlImageChanging(string value);
-    partial void OnurlImageChanged();
-    partial void OnidCLBChanging(System.Nullable<int> value);
-    partial void OnidCLBChanged();
-    partial void OnidPTChanging(string value);
-    partial void OnidPTChanged();
+    partial void OnidCourseChanging(int value);
+    partial void OnidCourseChanged();
+    partial void OnidDaysInWeekChanging(int value);
+    partial void OnidDaysInWeekChanged();
+    partial void OnidTimeStartChanging(int value);
+    partial void OnidTimeStartChanged();
+    partial void OnidTimeEndChanging(int value);
+    partial void OnidTimeEndChanged();
     #endregion
 		
-		public KhoaTapPT()
+		public Lich()
 		{
+			this._KhoaTap = default(EntityRef<KhoaTap>);
+			this._NgayTrongTuan = default(EntityRef<NgayTrongTuan>);
+			this._thoiGianBatDau = default(EntityRef<thoiGianBatDau>);
+			this._thoiGianKetThuc = default(EntityRef<thoiGianKetThuc>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCoursePT", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int idCoursePT
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCourse", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int idCourse
 		{
 			get
 			{
-				return this._idCoursePT;
+				return this._idCourse;
 			}
 			set
 			{
-				if ((this._idCoursePT != value))
+				if ((this._idCourse != value))
 				{
-					this.OnidCoursePTChanging(value);
+					if (this._KhoaTap.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidCourseChanging(value);
 					this.SendPropertyChanging();
-					this._idCoursePT = value;
-					this.SendPropertyChanged("idCoursePT");
-					this.OnidCoursePTChanged();
+					this._idCourse = value;
+					this.SendPropertyChanged("idCourse");
+					this.OnidCourseChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nameCourse", DbType="NVarChar(128)")]
-		public string nameCourse
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idDaysInWeek", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int idDaysInWeek
 		{
 			get
 			{
-				return this._nameCourse;
+				return this._idDaysInWeek;
 			}
 			set
 			{
-				if ((this._nameCourse != value))
+				if ((this._idDaysInWeek != value))
 				{
-					this.OnnameCourseChanging(value);
+					if (this._NgayTrongTuan.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidDaysInWeekChanging(value);
 					this.SendPropertyChanging();
-					this._nameCourse = value;
-					this.SendPropertyChanged("nameCourse");
-					this.OnnameCourseChanged();
+					this._idDaysInWeek = value;
+					this.SendPropertyChanged("idDaysInWeek");
+					this.OnidDaysInWeekChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_startDay", DbType="Date")]
-		public System.Nullable<System.DateTime> startDay
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idTimeStart", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int idTimeStart
 		{
 			get
 			{
-				return this._startDay;
+				return this._idTimeStart;
 			}
 			set
 			{
-				if ((this._startDay != value))
+				if ((this._idTimeStart != value))
 				{
-					this.OnstartDayChanging(value);
+					if (this._thoiGianBatDau.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidTimeStartChanging(value);
 					this.SendPropertyChanging();
-					this._startDay = value;
-					this.SendPropertyChanged("startDay");
-					this.OnstartDayChanged();
+					this._idTimeStart = value;
+					this.SendPropertyChanged("idTimeStart");
+					this.OnidTimeStartChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dueDay", DbType="Date")]
-		public System.Nullable<System.DateTime> dueDay
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idTimeEnd", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int idTimeEnd
 		{
 			get
 			{
-				return this._dueDay;
+				return this._idTimeEnd;
 			}
 			set
 			{
-				if ((this._dueDay != value))
+				if ((this._idTimeEnd != value))
 				{
-					this.OndueDayChanging(value);
+					if (this._thoiGianKetThuc.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidTimeEndChanging(value);
 					this.SendPropertyChanging();
-					this._dueDay = value;
-					this.SendPropertyChanged("dueDay");
-					this.OndueDayChanged();
+					this._idTimeEnd = value;
+					this.SendPropertyChanged("idTimeEnd");
+					this.OnidTimeEndChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Int")]
-		public System.Nullable<int> price
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KhoaTap_Lich", Storage="_KhoaTap", ThisKey="idCourse", OtherKey="idCourse", IsForeignKey=true)]
+		public KhoaTap KhoaTap
 		{
 			get
 			{
-				return this._price;
+				return this._KhoaTap.Entity;
 			}
 			set
 			{
-				if ((this._price != value))
+				KhoaTap previousValue = this._KhoaTap.Entity;
+				if (((previousValue != value) 
+							|| (this._KhoaTap.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnpriceChanging(value);
 					this.SendPropertyChanging();
-					this._price = value;
-					this.SendPropertyChanged("price");
-					this.OnpriceChanged();
+					if ((previousValue != null))
+					{
+						this._KhoaTap.Entity = null;
+						previousValue.Liches.Remove(this);
+					}
+					this._KhoaTap.Entity = value;
+					if ((value != null))
+					{
+						value.Liches.Add(this);
+						this._idCourse = value.idCourse;
+					}
+					else
+					{
+						this._idCourse = default(int);
+					}
+					this.SendPropertyChanged("KhoaTap");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descriptionKT", DbType="NVarChar(1000)")]
-		public string descriptionKT
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NgayTrongTuan_Lich", Storage="_NgayTrongTuan", ThisKey="idDaysInWeek", OtherKey="idDaysInWeek", IsForeignKey=true)]
+		public NgayTrongTuan NgayTrongTuan
 		{
 			get
 			{
-				return this._descriptionKT;
+				return this._NgayTrongTuan.Entity;
 			}
 			set
 			{
-				if ((this._descriptionKT != value))
+				NgayTrongTuan previousValue = this._NgayTrongTuan.Entity;
+				if (((previousValue != value) 
+							|| (this._NgayTrongTuan.HasLoadedOrAssignedValue == false)))
 				{
-					this.OndescriptionKTChanging(value);
 					this.SendPropertyChanging();
-					this._descriptionKT = value;
-					this.SendPropertyChanged("descriptionKT");
-					this.OndescriptionKTChanged();
+					if ((previousValue != null))
+					{
+						this._NgayTrongTuan.Entity = null;
+						previousValue.Liches.Remove(this);
+					}
+					this._NgayTrongTuan.Entity = value;
+					if ((value != null))
+					{
+						value.Liches.Add(this);
+						this._idDaysInWeek = value.idDaysInWeek;
+					}
+					else
+					{
+						this._idDaysInWeek = default(int);
+					}
+					this.SendPropertyChanged("NgayTrongTuan");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlImage", DbType="VarChar(128)")]
-		public string urlImage
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="thoiGianBatDau_Lich", Storage="_thoiGianBatDau", ThisKey="idTimeStart", OtherKey="idTimeStart", IsForeignKey=true)]
+		public thoiGianBatDau thoiGianBatDau
 		{
 			get
 			{
-				return this._urlImage;
+				return this._thoiGianBatDau.Entity;
 			}
 			set
 			{
-				if ((this._urlImage != value))
+				thoiGianBatDau previousValue = this._thoiGianBatDau.Entity;
+				if (((previousValue != value) 
+							|| (this._thoiGianBatDau.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnurlImageChanging(value);
 					this.SendPropertyChanging();
-					this._urlImage = value;
-					this.SendPropertyChanged("urlImage");
-					this.OnurlImageChanged();
+					if ((previousValue != null))
+					{
+						this._thoiGianBatDau.Entity = null;
+						previousValue.Liches.Remove(this);
+					}
+					this._thoiGianBatDau.Entity = value;
+					if ((value != null))
+					{
+						value.Liches.Add(this);
+						this._idTimeStart = value.idTimeStart;
+					}
+					else
+					{
+						this._idTimeStart = default(int);
+					}
+					this.SendPropertyChanged("thoiGianBatDau");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCLB", DbType="Int")]
-		public System.Nullable<int> idCLB
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="thoiGianKetThuc_Lich", Storage="_thoiGianKetThuc", ThisKey="idTimeEnd", OtherKey="idTimeEnd", IsForeignKey=true)]
+		public thoiGianKetThuc thoiGianKetThuc
 		{
 			get
 			{
-				return this._idCLB;
+				return this._thoiGianKetThuc.Entity;
 			}
 			set
 			{
-				if ((this._idCLB != value))
+				thoiGianKetThuc previousValue = this._thoiGianKetThuc.Entity;
+				if (((previousValue != value) 
+							|| (this._thoiGianKetThuc.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnidCLBChanging(value);
 					this.SendPropertyChanging();
-					this._idCLB = value;
-					this.SendPropertyChanged("idCLB");
-					this.OnidCLBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idPT", DbType="NChar(10)")]
-		public string idPT
-		{
-			get
-			{
-				return this._idPT;
-			}
-			set
-			{
-				if ((this._idPT != value))
-				{
-					this.OnidPTChanging(value);
-					this.SendPropertyChanging();
-					this._idPT = value;
-					this.SendPropertyChanged("idPT");
-					this.OnidPTChanged();
+					if ((previousValue != null))
+					{
+						this._thoiGianKetThuc.Entity = null;
+						previousValue.Liches.Remove(this);
+					}
+					this._thoiGianKetThuc.Entity = value;
+					if ((value != null))
+					{
+						value.Liches.Add(this);
+						this._idTimeEnd = value.idTimeEnd;
+					}
+					else
+					{
+						this._idTimeEnd = default(int);
+					}
+					this.SendPropertyChanged("thoiGianKetThuc");
 				}
 			}
 		}
@@ -1234,51 +1303,6 @@ namespace DOAN_WEB_GYM.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LoaiTinTuc")]
-	public partial class LoaiTinTuc
-	{
-		
-		private int _idNewsType;
-		
-		private string _NewsTypeName;
-		
-		public LoaiTinTuc()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idNewsType", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int idNewsType
-		{
-			get
-			{
-				return this._idNewsType;
-			}
-			set
-			{
-				if ((this._idNewsType != value))
-				{
-					this._idNewsType = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NewsTypeName", DbType="NVarChar(50)")]
-		public string NewsTypeName
-		{
-			get
-			{
-				return this._NewsTypeName;
-			}
-			set
-			{
-				if ((this._NewsTypeName != value))
-				{
-					this._NewsTypeName = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NgayTrongTuan")]
 	public partial class NgayTrongTuan : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1287,15 +1311,9 @@ namespace DOAN_WEB_GYM.Models
 		
 		private int _idDaysInWeek;
 		
-		private System.Nullable<int> _idCourse;
-		
 		private string _daysInWeek;
 		
-		private System.Nullable<int> _idTime;
-		
-		private EntityRef<KhoaTap> _KhoaTap;
-		
-		private EntityRef<thoiGianKhoaTap> _thoiGianKhoaTap;
+		private EntitySet<Lich> _Liches;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1303,18 +1321,13 @@ namespace DOAN_WEB_GYM.Models
     partial void OnCreated();
     partial void OnidDaysInWeekChanging(int value);
     partial void OnidDaysInWeekChanged();
-    partial void OnidCourseChanging(System.Nullable<int> value);
-    partial void OnidCourseChanged();
     partial void OndaysInWeekChanging(string value);
     partial void OndaysInWeekChanged();
-    partial void OnidTimeChanging(System.Nullable<int> value);
-    partial void OnidTimeChanged();
     #endregion
 		
 		public NgayTrongTuan()
 		{
-			this._KhoaTap = default(EntityRef<KhoaTap>);
-			this._thoiGianKhoaTap = default(EntityRef<thoiGianKhoaTap>);
+			this._Liches = new EntitySet<Lich>(new Action<Lich>(this.attach_Liches), new Action<Lich>(this.detach_Liches));
 			OnCreated();
 		}
 		
@@ -1334,30 +1347,6 @@ namespace DOAN_WEB_GYM.Models
 					this._idDaysInWeek = value;
 					this.SendPropertyChanged("idDaysInWeek");
 					this.OnidDaysInWeekChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCourse", DbType="Int")]
-		public System.Nullable<int> idCourse
-		{
-			get
-			{
-				return this._idCourse;
-			}
-			set
-			{
-				if ((this._idCourse != value))
-				{
-					if (this._KhoaTap.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidCourseChanging(value);
-					this.SendPropertyChanging();
-					this._idCourse = value;
-					this.SendPropertyChanged("idCourse");
-					this.OnidCourseChanged();
 				}
 			}
 		}
@@ -1382,95 +1371,16 @@ namespace DOAN_WEB_GYM.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idTime", DbType="Int")]
-		public System.Nullable<int> idTime
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NgayTrongTuan_Lich", Storage="_Liches", ThisKey="idDaysInWeek", OtherKey="idDaysInWeek")]
+		public EntitySet<Lich> Liches
 		{
 			get
 			{
-				return this._idTime;
+				return this._Liches;
 			}
 			set
 			{
-				if ((this._idTime != value))
-				{
-					if (this._thoiGianKhoaTap.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidTimeChanging(value);
-					this.SendPropertyChanging();
-					this._idTime = value;
-					this.SendPropertyChanged("idTime");
-					this.OnidTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KhoaTap_NgayTrongTuan", Storage="_KhoaTap", ThisKey="idCourse", OtherKey="idCourse", IsForeignKey=true)]
-		public KhoaTap KhoaTap
-		{
-			get
-			{
-				return this._KhoaTap.Entity;
-			}
-			set
-			{
-				KhoaTap previousValue = this._KhoaTap.Entity;
-				if (((previousValue != value) 
-							|| (this._KhoaTap.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._KhoaTap.Entity = null;
-						previousValue.NgayTrongTuans.Remove(this);
-					}
-					this._KhoaTap.Entity = value;
-					if ((value != null))
-					{
-						value.NgayTrongTuans.Add(this);
-						this._idCourse = value.idCourse;
-					}
-					else
-					{
-						this._idCourse = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("KhoaTap");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="thoiGianKhoaTap_NgayTrongTuan", Storage="_thoiGianKhoaTap", ThisKey="idTime", OtherKey="idTime", IsForeignKey=true)]
-		public thoiGianKhoaTap thoiGianKhoaTap
-		{
-			get
-			{
-				return this._thoiGianKhoaTap.Entity;
-			}
-			set
-			{
-				thoiGianKhoaTap previousValue = this._thoiGianKhoaTap.Entity;
-				if (((previousValue != value) 
-							|| (this._thoiGianKhoaTap.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._thoiGianKhoaTap.Entity = null;
-						previousValue.NgayTrongTuans.Remove(this);
-					}
-					this._thoiGianKhoaTap.Entity = value;
-					if ((value != null))
-					{
-						value.NgayTrongTuans.Add(this);
-						this._idTime = value.idTime;
-					}
-					else
-					{
-						this._idTime = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("thoiGianKhoaTap");
-				}
+				this._Liches.Assign(value);
 			}
 		}
 		
@@ -1492,6 +1402,18 @@ namespace DOAN_WEB_GYM.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Liches(Lich entity)
+		{
+			this.SendPropertyChanging();
+			entity.NgayTrongTuan = this;
+		}
+		
+		private void detach_Liches(Lich entity)
+		{
+			this.SendPropertyChanging();
+			entity.NgayTrongTuan = null;
 		}
 	}
 	
@@ -1950,54 +1872,50 @@ namespace DOAN_WEB_GYM.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.thoiGianKhoaTap")]
-	public partial class thoiGianKhoaTap : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.thoiGianBatDau")]
+	public partial class thoiGianBatDau : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _idTime;
+		private int _idTimeStart;
 		
 		private System.Nullable<System.TimeSpan> _timeStart;
 		
-		private System.Nullable<System.TimeSpan> _timeEnd;
-		
-		private EntitySet<NgayTrongTuan> _NgayTrongTuans;
+		private EntitySet<Lich> _Liches;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnidTimeChanging(int value);
-    partial void OnidTimeChanged();
+    partial void OnidTimeStartChanging(int value);
+    partial void OnidTimeStartChanged();
     partial void OntimeStartChanging(System.Nullable<System.TimeSpan> value);
     partial void OntimeStartChanged();
-    partial void OntimeEndChanging(System.Nullable<System.TimeSpan> value);
-    partial void OntimeEndChanged();
     #endregion
 		
-		public thoiGianKhoaTap()
+		public thoiGianBatDau()
 		{
-			this._NgayTrongTuans = new EntitySet<NgayTrongTuan>(new Action<NgayTrongTuan>(this.attach_NgayTrongTuans), new Action<NgayTrongTuan>(this.detach_NgayTrongTuans));
+			this._Liches = new EntitySet<Lich>(new Action<Lich>(this.attach_Liches), new Action<Lich>(this.detach_Liches));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idTime", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int idTime
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idTimeStart", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idTimeStart
 		{
 			get
 			{
-				return this._idTime;
+				return this._idTimeStart;
 			}
 			set
 			{
-				if ((this._idTime != value))
+				if ((this._idTimeStart != value))
 				{
-					this.OnidTimeChanging(value);
+					this.OnidTimeStartChanging(value);
 					this.SendPropertyChanging();
-					this._idTime = value;
-					this.SendPropertyChanged("idTime");
-					this.OnidTimeChanged();
+					this._idTimeStart = value;
+					this.SendPropertyChanged("idTimeStart");
+					this.OnidTimeStartChanged();
 				}
 			}
 		}
@@ -2022,36 +1940,16 @@ namespace DOAN_WEB_GYM.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_timeEnd", DbType="Time")]
-		public System.Nullable<System.TimeSpan> timeEnd
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="thoiGianBatDau_Lich", Storage="_Liches", ThisKey="idTimeStart", OtherKey="idTimeStart")]
+		public EntitySet<Lich> Liches
 		{
 			get
 			{
-				return this._timeEnd;
+				return this._Liches;
 			}
 			set
 			{
-				if ((this._timeEnd != value))
-				{
-					this.OntimeEndChanging(value);
-					this.SendPropertyChanging();
-					this._timeEnd = value;
-					this.SendPropertyChanged("timeEnd");
-					this.OntimeEndChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="thoiGianKhoaTap_NgayTrongTuan", Storage="_NgayTrongTuans", ThisKey="idTime", OtherKey="idTime")]
-		public EntitySet<NgayTrongTuan> NgayTrongTuans
-		{
-			get
-			{
-				return this._NgayTrongTuans;
-			}
-			set
-			{
-				this._NgayTrongTuans.Assign(value);
+				this._Liches.Assign(value);
 			}
 		}
 		
@@ -2075,16 +1973,244 @@ namespace DOAN_WEB_GYM.Models
 			}
 		}
 		
-		private void attach_NgayTrongTuans(NgayTrongTuan entity)
+		private void attach_Liches(Lich entity)
 		{
 			this.SendPropertyChanging();
-			entity.thoiGianKhoaTap = this;
+			entity.thoiGianBatDau = this;
 		}
 		
-		private void detach_NgayTrongTuans(NgayTrongTuan entity)
+		private void detach_Liches(Lich entity)
 		{
 			this.SendPropertyChanging();
-			entity.thoiGianKhoaTap = null;
+			entity.thoiGianBatDau = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.thoiGianKetThuc")]
+	public partial class thoiGianKetThuc : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idTimeEnd;
+		
+		private System.Nullable<System.TimeSpan> _timeEnd;
+		
+		private EntitySet<Lich> _Liches;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidTimeEndChanging(int value);
+    partial void OnidTimeEndChanged();
+    partial void OntimeEndChanging(System.Nullable<System.TimeSpan> value);
+    partial void OntimeEndChanged();
+    #endregion
+		
+		public thoiGianKetThuc()
+		{
+			this._Liches = new EntitySet<Lich>(new Action<Lich>(this.attach_Liches), new Action<Lich>(this.detach_Liches));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idTimeEnd", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idTimeEnd
+		{
+			get
+			{
+				return this._idTimeEnd;
+			}
+			set
+			{
+				if ((this._idTimeEnd != value))
+				{
+					this.OnidTimeEndChanging(value);
+					this.SendPropertyChanging();
+					this._idTimeEnd = value;
+					this.SendPropertyChanged("idTimeEnd");
+					this.OnidTimeEndChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_timeEnd", DbType="Time")]
+		public System.Nullable<System.TimeSpan> timeEnd
+		{
+			get
+			{
+				return this._timeEnd;
+			}
+			set
+			{
+				if ((this._timeEnd != value))
+				{
+					this.OntimeEndChanging(value);
+					this.SendPropertyChanging();
+					this._timeEnd = value;
+					this.SendPropertyChanged("timeEnd");
+					this.OntimeEndChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="thoiGianKetThuc_Lich", Storage="_Liches", ThisKey="idTimeEnd", OtherKey="idTimeEnd")]
+		public EntitySet<Lich> Liches
+		{
+			get
+			{
+				return this._Liches;
+			}
+			set
+			{
+				this._Liches.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Liches(Lich entity)
+		{
+			this.SendPropertyChanging();
+			entity.thoiGianKetThuc = this;
+		}
+		
+		private void detach_Liches(Lich entity)
+		{
+			this.SendPropertyChanging();
+			entity.thoiGianKetThuc = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TenLoaiTinTuc")]
+	public partial class TenLoaiTinTuc : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idNewsType;
+		
+		private string _newsTypeName;
+		
+		private EntitySet<TinTuc> _TinTucs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidNewsTypeChanging(int value);
+    partial void OnidNewsTypeChanged();
+    partial void OnnewsTypeNameChanging(string value);
+    partial void OnnewsTypeNameChanged();
+    #endregion
+		
+		public TenLoaiTinTuc()
+		{
+			this._TinTucs = new EntitySet<TinTuc>(new Action<TinTuc>(this.attach_TinTucs), new Action<TinTuc>(this.detach_TinTucs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idNewsType", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idNewsType
+		{
+			get
+			{
+				return this._idNewsType;
+			}
+			set
+			{
+				if ((this._idNewsType != value))
+				{
+					this.OnidNewsTypeChanging(value);
+					this.SendPropertyChanging();
+					this._idNewsType = value;
+					this.SendPropertyChanged("idNewsType");
+					this.OnidNewsTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_newsTypeName", DbType="NVarChar(50)")]
+		public string newsTypeName
+		{
+			get
+			{
+				return this._newsTypeName;
+			}
+			set
+			{
+				if ((this._newsTypeName != value))
+				{
+					this.OnnewsTypeNameChanging(value);
+					this.SendPropertyChanging();
+					this._newsTypeName = value;
+					this.SendPropertyChanged("newsTypeName");
+					this.OnnewsTypeNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TenLoaiTinTuc_TinTuc", Storage="_TinTucs", ThisKey="idNewsType", OtherKey="newsTypeId")]
+		public EntitySet<TinTuc> TinTucs
+		{
+			get
+			{
+				return this._TinTucs;
+			}
+			set
+			{
+				this._TinTucs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TinTucs(TinTuc entity)
+		{
+			this.SendPropertyChanging();
+			entity.TenLoaiTinTuc = this;
+		}
+		
+		private void detach_TinTucs(TinTuc entity)
+		{
+			this.SendPropertyChanging();
+			entity.TenLoaiTinTuc = null;
 		}
 	}
 	
@@ -2106,6 +2232,8 @@ namespace DOAN_WEB_GYM.Models
 		
 		private System.Nullable<int> _newsTypeId;
 		
+		private EntityRef<TenLoaiTinTuc> _TenLoaiTinTuc;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2126,6 +2254,7 @@ namespace DOAN_WEB_GYM.Models
 		
 		public TinTuc()
 		{
+			this._TenLoaiTinTuc = default(EntityRef<TenLoaiTinTuc>);
 			OnCreated();
 		}
 		
@@ -2240,11 +2369,303 @@ namespace DOAN_WEB_GYM.Models
 			{
 				if ((this._newsTypeId != value))
 				{
+					if (this._TenLoaiTinTuc.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnnewsTypeIdChanging(value);
 					this.SendPropertyChanging();
 					this._newsTypeId = value;
 					this.SendPropertyChanged("newsTypeId");
 					this.OnnewsTypeIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TenLoaiTinTuc_TinTuc", Storage="_TenLoaiTinTuc", ThisKey="newsTypeId", OtherKey="idNewsType", IsForeignKey=true)]
+		public TenLoaiTinTuc TenLoaiTinTuc
+		{
+			get
+			{
+				return this._TenLoaiTinTuc.Entity;
+			}
+			set
+			{
+				TenLoaiTinTuc previousValue = this._TenLoaiTinTuc.Entity;
+				if (((previousValue != value) 
+							|| (this._TenLoaiTinTuc.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TenLoaiTinTuc.Entity = null;
+						previousValue.TinTucs.Remove(this);
+					}
+					this._TenLoaiTinTuc.Entity = value;
+					if ((value != null))
+					{
+						value.TinTucs.Add(this);
+						this._newsTypeId = value.idNewsType;
+					}
+					else
+					{
+						this._newsTypeId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TenLoaiTinTuc");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.KhoaTapPT")]
+	public partial class KhoaTapPT : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idCoursePT;
+		
+		private string _nameCourse;
+		
+		private System.Nullable<System.DateTime> _startDay;
+		
+		private System.Nullable<System.DateTime> _dueDay;
+		
+		private System.Nullable<int> _price;
+		
+		private string _descriptionKT;
+		
+		private string _urlImage;
+		
+		private System.Nullable<int> _idCLB;
+		
+		private string _idPT;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidCoursePTChanging(int value);
+    partial void OnidCoursePTChanged();
+    partial void OnnameCourseChanging(string value);
+    partial void OnnameCourseChanged();
+    partial void OnstartDayChanging(System.Nullable<System.DateTime> value);
+    partial void OnstartDayChanged();
+    partial void OndueDayChanging(System.Nullable<System.DateTime> value);
+    partial void OndueDayChanged();
+    partial void OnpriceChanging(System.Nullable<int> value);
+    partial void OnpriceChanged();
+    partial void OndescriptionKTChanging(string value);
+    partial void OndescriptionKTChanged();
+    partial void OnurlImageChanging(string value);
+    partial void OnurlImageChanged();
+    partial void OnidCLBChanging(System.Nullable<int> value);
+    partial void OnidCLBChanged();
+    partial void OnidPTChanging(string value);
+    partial void OnidPTChanged();
+    #endregion
+		
+		public KhoaTapPT()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCoursePT", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int idCoursePT
+		{
+			get
+			{
+				return this._idCoursePT;
+			}
+			set
+			{
+				if ((this._idCoursePT != value))
+				{
+					this.OnidCoursePTChanging(value);
+					this.SendPropertyChanging();
+					this._idCoursePT = value;
+					this.SendPropertyChanged("idCoursePT");
+					this.OnidCoursePTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nameCourse", DbType="NVarChar(128)")]
+		public string nameCourse
+		{
+			get
+			{
+				return this._nameCourse;
+			}
+			set
+			{
+				if ((this._nameCourse != value))
+				{
+					this.OnnameCourseChanging(value);
+					this.SendPropertyChanging();
+					this._nameCourse = value;
+					this.SendPropertyChanged("nameCourse");
+					this.OnnameCourseChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_startDay", DbType="Date")]
+		public System.Nullable<System.DateTime> startDay
+		{
+			get
+			{
+				return this._startDay;
+			}
+			set
+			{
+				if ((this._startDay != value))
+				{
+					this.OnstartDayChanging(value);
+					this.SendPropertyChanging();
+					this._startDay = value;
+					this.SendPropertyChanged("startDay");
+					this.OnstartDayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dueDay", DbType="Date")]
+		public System.Nullable<System.DateTime> dueDay
+		{
+			get
+			{
+				return this._dueDay;
+			}
+			set
+			{
+				if ((this._dueDay != value))
+				{
+					this.OndueDayChanging(value);
+					this.SendPropertyChanging();
+					this._dueDay = value;
+					this.SendPropertyChanged("dueDay");
+					this.OndueDayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Int")]
+		public System.Nullable<int> price
+		{
+			get
+			{
+				return this._price;
+			}
+			set
+			{
+				if ((this._price != value))
+				{
+					this.OnpriceChanging(value);
+					this.SendPropertyChanging();
+					this._price = value;
+					this.SendPropertyChanged("price");
+					this.OnpriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descriptionKT", DbType="NVarChar(1000)")]
+		public string descriptionKT
+		{
+			get
+			{
+				return this._descriptionKT;
+			}
+			set
+			{
+				if ((this._descriptionKT != value))
+				{
+					this.OndescriptionKTChanging(value);
+					this.SendPropertyChanging();
+					this._descriptionKT = value;
+					this.SendPropertyChanged("descriptionKT");
+					this.OndescriptionKTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlImage", DbType="VarChar(128)")]
+		public string urlImage
+		{
+			get
+			{
+				return this._urlImage;
+			}
+			set
+			{
+				if ((this._urlImage != value))
+				{
+					this.OnurlImageChanging(value);
+					this.SendPropertyChanging();
+					this._urlImage = value;
+					this.SendPropertyChanged("urlImage");
+					this.OnurlImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCLB", DbType="Int")]
+		public System.Nullable<int> idCLB
+		{
+			get
+			{
+				return this._idCLB;
+			}
+			set
+			{
+				if ((this._idCLB != value))
+				{
+					this.OnidCLBChanging(value);
+					this.SendPropertyChanging();
+					this._idCLB = value;
+					this.SendPropertyChanged("idCLB");
+					this.OnidCLBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idPT", DbType="NChar(10)")]
+		public string idPT
+		{
+			get
+			{
+				return this._idPT;
+			}
+			set
+			{
+				if ((this._idPT != value))
+				{
+					this.OnidPTChanging(value);
+					this.SendPropertyChanging();
+					this._idPT = value;
+					this.SendPropertyChanged("idPT");
+					this.OnidPTChanged();
 				}
 			}
 		}

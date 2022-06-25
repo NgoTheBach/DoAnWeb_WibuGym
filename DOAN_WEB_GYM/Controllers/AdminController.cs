@@ -58,20 +58,29 @@ namespace DOAN_WEB_GYM.Controllers
             return View();
         }
         // Thêm khóa tập
+        [HttpGet]
         public ActionResult ThemKhoaTap()
         {
+            ViewBag.MaCLB = new SelectList(db.CLBs.ToList().OrderBy(n => n.CLBName), "idCLB", "CLBName");
+            ViewBag.GioBatDau = new SelectList(db.thoiGianBatDaus.ToList().OrderBy(n => n.idTimeStart), "idTimeStart", "timeStart");
+            ViewBag.GioKetThuc = new SelectList(db.thoiGianKetThucs.ToList().OrderBy(n => n.idTimeEnd), "idTimeEnd", "timeEnd");
+            ViewBag.ThuTrongTuan = new SelectList(db.NgayTrongTuans.ToList().OrderBy(n => n.idDaysInWeek), "idDaysInWeek", "daysInWeek");
             return View();
         }
         [HttpPost]
-        public ActionResult ThemKhoaTap(FormCollection collection, KhoaTap s)
+        public ActionResult ThemKhoaTap(FormCollection collection, KhoaTap s, Lich l)
         {
             var E_tenKT = collection["tenKT"];
             var E_descriptionKT = collection["descriptionKT"];
             var E_startDay = Convert.ToDateTime(collection["startDay"]);
             var E_dueDay = Convert.ToDateTime(collection["dueDay"]);
-            var E_gia = Convert.ToInt32(collection["gia"]);
-            var E_hinh = collection["hinh"];
-            var E_idCLB = Convert.ToInt32(collection["idCLB"]);
+            var E_gia = Convert.ToInt32(collection["price"]);
+            var E_hinh = collection["urlImg"];
+            var E_idCLB = Convert.ToInt32(collection["MaCLB"]);
+            var E_idGioBatDau = Convert.ToInt32(collection["GioBatDau"]);
+            var E_idGioKetThuc = Convert.ToInt32(collection["GioKetThuc"]);
+            var E_idThuTrongTuan = Convert.ToInt32(collection["ThuTrongTuan"]);
+
             if (string.IsNullOrEmpty(E_tenKT))
             {
                 ViewData["Error"] = "Don't empty!";
@@ -88,11 +97,24 @@ namespace DOAN_WEB_GYM.Controllers
                 s.idCLB = E_idCLB;
                 db.KhoaTaps.InsertOnSubmit(s);
                 db.SubmitChanges();
+                l.idCourse = s.idCourse;
+                l.idTimeStart = E_idGioBatDau;
+                l.idTimeEnd = E_idGioKetThuc;
+                l.idDaysInWeek = E_idThuTrongTuan;
+                db.Liches.InsertOnSubmit(l);
+                db.SubmitChanges();
                 return RedirectToAction("ListKhoaTap");
             }
             return this.ThemKhoaTap();
         }
         // end Thêm khóa tập
+        // list Khoa tap
+        public ActionResult ListKhoaTap()
+        {
+            var all_khoatap = from ss in db.KhoaTaps select ss;
+            return View(all_khoatap);
+        }
+        // end List Khoa tap
         public ActionResult ThemTinTuc()
         {
             return View();
